@@ -64,9 +64,7 @@ class AppTheme {
         errorBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: AppColors.error, width: 1),
         ),
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 12,
-        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 12),
         hintStyle: AppTextStyles.textTheme.bodyLarge?.copyWith(
           color: AppColors.onSurfaceVariant,
         ),

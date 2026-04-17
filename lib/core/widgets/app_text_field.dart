@@ -34,10 +34,10 @@ class AppTextField extends StatelessWidget {
           Text(
             label!,
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.onSurfaceVariant,
-                  letterSpacing: 1.2,
-                ),
+              fontWeight: FontWeight.bold,
+              color: AppColors.onSurfaceVariant,
+              letterSpacing: 1.2,
+            ),
           ),
           const SizedBox(height: 4),
         ],
@@ -46,13 +46,15 @@ class AppTextField extends StatelessWidget {
           obscureText: isPassword,
           keyboardType: keyboardType,
           onChanged: onChanged,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: AppColors.onSurface,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(color: AppColors.onSurface),
           decoration: InputDecoration(
             hintText: hintText,
             errorText: errorText,
-            prefixIcon: prefixIcon != null ? Icon(prefixIcon, color: AppColors.primary, size: 20) : null,
+            prefixIcon: prefixIcon != null
+                ? Icon(prefixIcon, color: AppColors.primary, size: 20)
+                : null,
             suffixIcon: suffixIcon,
             fillColor: Colors.transparent,
             filled: false,

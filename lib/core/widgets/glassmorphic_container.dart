@@ -31,7 +31,8 @@ class GlassmorphicContainer extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.surface.withValues(alpha: opacity),
             borderRadius: BorderRadius.circular(borderRadius),
-            border: border ??
+            border:
+                border ??
                 Border.all(
                   color: AppColors.outlineVariant.withValues(alpha: 0.2),
                   width: 1,
