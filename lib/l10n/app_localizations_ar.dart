@@ -34,4 +34,35 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get dont_have_account => 'ليس لديك حساب؟';
+
+  @override
+  String get register_title => 'إنشاء حساب جديد';
+
+  @override
+  String get register_subtitle => 'انضم إلى لفاف وابدأ رحلتك';
+
+  @override
+  String get full_name => 'الاسم بالكامل';
+
+  @override
+  String get full_name_hint => 'الاسم الثلاثي';
+
+  @override
+  String get confirm_password => 'تأكيد كلمة المرور';
+
+  @override
+  String get confirm_password_hint => '••••••••';
+
+  @override
+  String get register_button => 'إنشاء الحساب';
+
+  @override
+  String get already_have_account => 'لديك حساب بالفعل؟';
+
+  @override
+  String get login_now => 'تسجيل الدخول';
+
+  @override
+  String get terms_and_conditions =>
+      'بالتسجيل أنت توافق المضي على الشروط والأحكام';
 }

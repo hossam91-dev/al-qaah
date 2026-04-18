@@ -1,4 +1,5 @@
 import 'package:al_qaah/features/auth/presentation/pages/login_page.dart';
+import 'package:al_qaah/features/auth/presentation/pages/register_page.dart';
 import 'package:al_qaah/features/design_system/presentation/pages/design_system_page.dart';
 import 'package:go_router/go_router.dart';
 import 'app_routes.dart';
@@ -13,6 +14,11 @@ class AppRouter {
         path: AppRoutes.login,
         name: 'login',
         builder: (context, state) => const LoginPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.register,
+        name: 'register',
+        builder: (context, state) => const RegisterPage(),
       ),
       GoRoute(
         path: AppRoutes.designSystem,
