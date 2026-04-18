@@ -14,7 +14,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     // For now, this is a mock implementation.
     // In Phase 3, we'll configure the real ApiClient.
     await Future.delayed(const Duration(seconds: 2));
-    
+
     if (phone == "0123456789" && password == "password") {
       return const UserEntity(
         id: "1",
