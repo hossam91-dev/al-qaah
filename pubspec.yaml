@@ -44,4 +44,5 @@ dev_dependencies:
   json_serializable: ^6.13.1
 
 flutter:
+  generate: true
   uses-material-design: true

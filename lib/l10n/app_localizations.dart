@@ -147,6 +147,66 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'ليس لديك حساب؟'**
   String get dont_have_account;
+
+  /// No description provided for @register_title.
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء حساب جديد'**
+  String get register_title;
+
+  /// No description provided for @register_subtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'انضم إلى لفاف وابدأ رحلتك'**
+  String get register_subtitle;
+
+  /// No description provided for @full_name.
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم بالكامل'**
+  String get full_name;
+
+  /// No description provided for @full_name_hint.
+  ///
+  /// In ar, this message translates to:
+  /// **'الاسم الثلاثي'**
+  String get full_name_hint;
+
+  /// No description provided for @confirm_password.
+  ///
+  /// In ar, this message translates to:
+  /// **'تأكيد كلمة المرور'**
+  String get confirm_password;
+
+  /// No description provided for @confirm_password_hint.
+  ///
+  /// In ar, this message translates to:
+  /// **'••••••••'**
+  String get confirm_password_hint;
+
+  /// No description provided for @register_button.
+  ///
+  /// In ar, this message translates to:
+  /// **'إنشاء الحساب'**
+  String get register_button;
+
+  /// No description provided for @already_have_account.
+  ///
+  /// In ar, this message translates to:
+  /// **'لديك حساب بالفعل؟'**
+  String get already_have_account;
+
+  /// No description provided for @login_now.
+  ///
+  /// In ar, this message translates to:
+  /// **'تسجيل الدخول'**
+  String get login_now;
+
+  /// No description provided for @terms_and_conditions.
+  ///
+  /// In ar, this message translates to:
+  /// **'بالتسجيل أنت توافق المضي على الشروط والأحكام'**
+  String get terms_and_conditions;
 }
 
 class _AppLocalizationsDelegate

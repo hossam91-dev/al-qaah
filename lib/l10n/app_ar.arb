@@ -7,5 +7,15 @@
   "password_hint": "••••••••",
   "login_button": "دخول",
   "create_account": "إنشاء حساب جديد",
-  "dont_have_account": "ليس لديك حساب؟"
+  "dont_have_account": "ليس لديك حساب؟",
+  "register_title": "إنشاء حساب جديد",
+  "register_subtitle": "انضم إلى لفاف وابدأ رحلتك",
+  "full_name": "الاسم بالكامل",
+  "full_name_hint": "الاسم الثلاثي",
+  "confirm_password": "تأكيد كلمة المرور",
+  "confirm_password_hint": "••••••••",
+  "register_button": "إنشاء الحساب",
+  "already_have_account": "لديك حساب بالفعل؟",
+  "login_now": "تسجيل الدخول",
+  "terms_and_conditions": "بالتسجيل أنت توافق المضي على الشروط والأحكام"
 }
