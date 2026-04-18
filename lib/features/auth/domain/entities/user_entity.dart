@@ -12,5 +12,6 @@ abstract class UserEntity with _$UserEntity {
     String? token,
   }) = _UserEntity;
 
-  factory UserEntity.fromJson(Map<String, dynamic> json) => _$UserEntityFromJson(json);
+  factory UserEntity.fromJson(Map<String, dynamic> json) =>
+      _$UserEntityFromJson(json);
 }
