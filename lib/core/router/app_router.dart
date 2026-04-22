@@ -1,6 +1,7 @@
 import 'package:al_qaah/features/auth/presentation/pages/login_page.dart';
 import 'package:al_qaah/features/auth/presentation/pages/register_page.dart';
 import 'package:al_qaah/features/design_system/presentation/pages/design_system_page.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'app_routes.dart';
 
@@ -25,11 +26,40 @@ class AppRouter {
         name: 'designSystem',
         builder: (context, state) => const DesignSystemPage(),
       ),
-      // Redirect home to login for now
       GoRoute(
         path: AppRoutes.home,
-        redirect: (context, state) => AppRoutes.login,
+        name: 'home',
+        builder: (context, state) => const _HomePlaceholderPage(),
       ),
     ],
   );
+}
+
+class _HomePlaceholderPage extends StatelessWidget {
+  const _HomePlaceholderPage();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.check_circle_outline,
+              size: 80,
+              color: Colors.green,
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'تم التسجيل بنجاح!',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            const Text('الصفحة الرئيسية قيد التطوير'),
+          ],
+        ),
+      ),
+    );
+  }
 }

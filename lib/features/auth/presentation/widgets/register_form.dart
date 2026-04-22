@@ -15,7 +15,7 @@ class RegisterForm extends StatefulWidget {
 
 class _RegisterFormState extends State<RegisterForm> {
   final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
@@ -25,10 +25,19 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   void dispose() {
     _nameController.dispose();
-    _phoneController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  void _submit(BuildContext context) {
+    context.read<AuthCubit>().register(
+      fullName: _nameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
+      confirmPassword: _confirmPasswordController.text,
+    );
   }
 
   @override
@@ -49,8 +58,8 @@ class _RegisterFormState extends State<RegisterForm> {
         AppTextField(
           label: l10n.phone_number,
           hintText: l10n.phone_hint,
-          controller: _phoneController,
-          keyboardType: TextInputType.phone,
+          controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
           prefixIcon: Icons.phone_android_outlined,
         ),
         const SizedBox(height: 24),
@@ -112,9 +121,7 @@ class _RegisterFormState extends State<RegisterForm> {
             return AppButton.primary(
               text: l10n.register_button,
               isLoading: isLoading,
-              onPressed: () {
-                // Normally context.read<AuthCubit>().register(...) would go here
-              },
+              onPressed: isLoading ? () {} : () => _submit(context),
             );
           },
         ),

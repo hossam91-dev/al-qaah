@@ -1,12 +1,19 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'injection.config.dart';
 
 final getIt = GetIt.instance;
 
+@module
+abstract class AppModule {
+  @lazySingleton
+  SupabaseClient get supabaseClient => Supabase.instance.client;
+}
+
 @InjectableInit(
-  initializerName: 'init', // default
-  preferRelativeImports: true, // default
-  asExtension: true, // default
+  initializerName: 'init',
+  preferRelativeImports: true,
+  asExtension: true,
 )
 void configureDependencies() => getIt.init();
