@@ -1,5 +1,8 @@
+import 'package:al_qaah/features/auth/presentation/pages/forgot_password_page.dart';
 import 'package:al_qaah/features/auth/presentation/pages/login_page.dart';
+import 'package:al_qaah/features/auth/presentation/pages/otp_verification_page.dart';
 import 'package:al_qaah/features/auth/presentation/pages/register_page.dart';
+import 'package:al_qaah/features/auth/presentation/pages/reset_password_page.dart';
 import 'package:al_qaah/features/design_system/presentation/pages/design_system_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -20,6 +23,24 @@ class AppRouter {
         path: AppRoutes.register,
         name: 'register',
         builder: (context, state) => const RegisterPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.forgotPassword,
+        name: 'forgotPassword',
+        builder: (context, state) => const ForgotPasswordPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.otpVerification,
+        name: 'otpVerification',
+        builder: (context, state) {
+          final email = state.extra as String? ?? '';
+          return OtpVerificationPage(email: email);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.resetPassword,
+        name: 'resetPassword',
+        builder: (context, state) => const ResetPasswordPage(),
       ),
       GoRoute(
         path: AppRoutes.designSystem,

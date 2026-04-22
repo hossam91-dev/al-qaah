@@ -118,6 +118,12 @@ abstract class AppLocalizations {
   /// **'012 XXXX XXXX'**
   String get phone_hint;
 
+  /// No description provided for @email.
+  ///
+  /// In ar, this message translates to:
+  /// **'البريد الإلكتروني'**
+  String get email;
+
   /// No description provided for @password.
   ///
   /// In ar, this message translates to:
@@ -207,6 +213,96 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'بالتسجيل أنت توافق المضي على الشروط والأحكام'**
   String get terms_and_conditions;
+
+  /// No description provided for @forgot_password.
+  ///
+  /// In ar, this message translates to:
+  /// **'نسيت كلمة المرور؟'**
+  String get forgot_password;
+
+  /// No description provided for @forgot_password_title.
+  ///
+  /// In ar, this message translates to:
+  /// **'استعادة كلمة المرور'**
+  String get forgot_password_title;
+
+  /// No description provided for @forgot_password_subtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'أدخل بريدك الإلكتروني لتلقي رمز التحقق'**
+  String get forgot_password_subtitle;
+
+  /// No description provided for @send_code_button.
+  ///
+  /// In ar, this message translates to:
+  /// **'إرسال الرمز'**
+  String get send_code_button;
+
+  /// No description provided for @otp_title.
+  ///
+  /// In ar, this message translates to:
+  /// **'رمز التحقق'**
+  String get otp_title;
+
+  /// No description provided for @otp_subtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'أدخل الرمز المكون من 6 أرقام المرسل إليك'**
+  String get otp_subtitle;
+
+  /// No description provided for @verify_button.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحقق'**
+  String get verify_button;
+
+  /// No description provided for @resend_code.
+  ///
+  /// In ar, this message translates to:
+  /// **'إعادة إرسال الرمز'**
+  String get resend_code;
+
+  /// No description provided for @invalid_code_error.
+  ///
+  /// In ar, this message translates to:
+  /// **'رمز التحقق غير صحيح، حاول مرة أخرى'**
+  String get invalid_code_error;
+
+  /// No description provided for @reset_password_title.
+  ///
+  /// In ar, this message translates to:
+  /// **'تعيين كلمة المرور'**
+  String get reset_password_title;
+
+  /// No description provided for @reset_password_subtitle.
+  ///
+  /// In ar, this message translates to:
+  /// **'قم بتعيين كلمة مرور جديدة قوية'**
+  String get reset_password_subtitle;
+
+  /// No description provided for @new_password.
+  ///
+  /// In ar, this message translates to:
+  /// **'كلمة المرور الجديدة'**
+  String get new_password;
+
+  /// No description provided for @new_password_hint.
+  ///
+  /// In ar, this message translates to:
+  /// **'••••••••'**
+  String get new_password_hint;
+
+  /// No description provided for @update_password_button.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحديث كلمة المرور'**
+  String get update_password_button;
+
+  /// No description provided for @password_updated_success.
+  ///
+  /// In ar, this message translates to:
+  /// **'تم تحديث كلمة المرور بنجاح'**
+  String get password_updated_success;
 }
 
 class _AppLocalizationsDelegate
