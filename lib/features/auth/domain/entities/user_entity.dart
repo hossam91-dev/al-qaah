@@ -7,7 +7,7 @@ part 'user_entity.g.dart';
 abstract class UserEntity with _$UserEntity {
   const factory UserEntity({
     required String id,
-    required String phone,
+    required String email,
     String? name,
     String? token,
   }) = _UserEntity;

@@ -24,4 +24,38 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthState.error(e.toString()));
     }
   }
+
+  Future<void> register({
+    required String fullName,
+    required String email,
+    required String password,
+    required String confirmPassword,
+  }) async {
+    if (fullName.trim().isEmpty || email.trim().isEmpty || password.isEmpty) {
+      emit(const AuthState.error('يرجى ملء جميع الحقول المطلوبة'));
+      return;
+    }
+
+    if (password != confirmPassword) {
+      emit(const AuthState.error('كلمتا المرور غير متطابقتين'));
+      return;
+    }
+
+    if (password.length < 6) {
+      emit(const AuthState.error('كلمة المرور يجب أن تكون 6 أحرف على الأقل'));
+      return;
+    }
+
+    emit(const AuthState.loading());
+    try {
+      final user = await _authRepository.register(
+        email: email.trim(),
+        fullName: fullName.trim(),
+        password: password,
+      );
+      emit(AuthState.success(user));
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
 }
