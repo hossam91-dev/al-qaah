@@ -1,13 +1,15 @@
+import 'package:al_qaah/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/di/injection.dart';
 import '../../../../core/router/app_routes.dart';
+import '../../../../core/widgets/app_snack_bar.dart';
 import '../bloc/auth_cubit.dart';
-import '../widgets/login_logo.dart';
+import '../widgets/auth_header.dart';
+import '../widgets/auth_logo.dart';
 import '../widgets/register_footer.dart';
 import '../widgets/register_form.dart';
-import '../widgets/register_header.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -20,21 +22,15 @@ class RegisterPage extends StatelessWidget {
         listener: (context, state) {
           state.whenOrNull(
             success: (user) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'مرحباً ${user.name ?? ''}! تم إنشاء حسابك بنجاح',
-                  ),
-                  backgroundColor: Colors.green,
-                ),
+              AppSnackBar.success(
+                context,
+                'مرحباً ${user.name ?? ''}! تم إنشاء حسابك بنجاح',
               );
               context.go(AppRoutes.home);
             },
             error: (message) {
-              print(message);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(message), backgroundColor: Colors.red),
-              );
+              debugPrint(message);
+              AppSnackBar.error(context, message);
             },
           );
         },
@@ -44,16 +40,19 @@ class RegisterPage extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: const [
-                  SizedBox(height: 10),
-                  LoginLogo(),
-                  SizedBox(height: 40),
-                  RegisterHeader(),
-                  SizedBox(height: 48),
-                  RegisterForm(),
-                  SizedBox(height: 16),
-                  RegisterFooter(),
-                  SizedBox(height: 40),
+                children: [
+                  const SizedBox(height: 10),
+                  const AuthLogo(),
+                  const SizedBox(height: 40),
+                  AuthHeader(
+                    title: AppLocalizations.of(context)!.register_title,
+                    subtitle: AppLocalizations.of(context)!.register_subtitle,
+                  ),
+                  const SizedBox(height: 48),
+                  const RegisterForm(),
+                  const SizedBox(height: 16),
+                  const RegisterFooter(),
+                  const SizedBox(height: 40),
                 ],
               ),
             ),

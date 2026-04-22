@@ -21,6 +21,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get phone_hint => '012 XXXX XXXX';
 
   @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
   String get password => 'كلمة المرور';
 
   @override
@@ -65,4 +68,50 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get terms_and_conditions =>
       'بالتسجيل أنت توافق المضي على الشروط والأحكام';
+
+  @override
+  String get forgot_password => 'نسيت كلمة المرور؟';
+
+  @override
+  String get forgot_password_title => 'استعادة كلمة المرور';
+
+  @override
+  String get forgot_password_subtitle =>
+      'أدخل بريدك الإلكتروني لتلقي رمز التحقق';
+
+  @override
+  String get send_code_button => 'إرسال الرمز';
+
+  @override
+  String get otp_title => 'رمز التحقق';
+
+  @override
+  String get otp_subtitle => 'أدخل الرمز المكون من 6 أرقام المرسل إليك';
+
+  @override
+  String get verify_button => 'تحقق';
+
+  @override
+  String get resend_code => 'إعادة إرسال الرمز';
+
+  @override
+  String get invalid_code_error => 'رمز التحقق غير صحيح، حاول مرة أخرى';
+
+  @override
+  String get reset_password_title => 'تعيين كلمة المرور';
+
+  @override
+  String get reset_password_subtitle => 'قم بتعيين كلمة مرور جديدة قوية';
+
+  @override
+  String get new_password => 'كلمة المرور الجديدة';
+
+  @override
+  String get new_password_hint => '••••••••';
+
+  @override
+  String get update_password_button => 'تحديث كلمة المرور';
+
+  @override
+  String get password_updated_success => 'تم تحديث كلمة المرور بنجاح';
 }

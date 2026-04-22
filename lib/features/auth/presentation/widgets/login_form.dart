@@ -14,13 +14,13 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
 
   @override
   void dispose() {
-    _phoneController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -32,11 +32,11 @@ class _LoginFormState extends State<LoginForm> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         AppTextField(
-          label: l10n.phone_number,
-          hintText: l10n.phone_hint,
-          controller: _phoneController,
-          keyboardType: TextInputType.phone,
-          prefixIcon: Icons.phone_android_outlined,
+          label: l10n.email,
+          hintText: "example@email.com",
+          controller: _emailController,
+          keyboardType: TextInputType.emailAddress,
+          prefixIcon: Icons.email_outlined,
         ),
         const SizedBox(height: 24),
         AppTextField(
@@ -72,7 +72,7 @@ class _LoginFormState extends State<LoginForm> {
               isLoading: isLoading,
               onPressed: () {
                 context.read<AuthCubit>().login(
-                  _phoneController.text,
+                  _emailController.text,
                   _passwordController.text,
                 );
               },

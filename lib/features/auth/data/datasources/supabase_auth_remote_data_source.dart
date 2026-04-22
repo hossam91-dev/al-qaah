@@ -65,4 +65,23 @@ class SupabaseAuthRemoteDataSource implements AuthRemoteDataSource {
 
     return UserEntity(id: authUser.id, email: email, name: fullName);
   }
+
+  @override
+  Future<void> sendResetCode(String email) async {
+    await _supabase.auth.resetPasswordForEmail(email);
+  }
+
+  @override
+  Future<void> verifyOtp({required String email, required String token}) async {
+    await _supabase.auth.verifyOTP(
+      email: email,
+      token: token,
+      type: OtpType.recovery,
+    );
+  }
+
+  @override
+  Future<void> updatePassword(String newPassword) async {
+    await _supabase.auth.updateUser(UserAttributes(password: newPassword));
+  }
 }

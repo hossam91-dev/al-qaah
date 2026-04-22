@@ -1,5 +1,7 @@
+import 'package:al_qaah/core/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 
@@ -14,7 +16,7 @@ class LoginFooter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextButton(
-            onPressed: () {},
+            onPressed: () => context.go(AppRoutes.register),
             child: Text(
               l10n.create_account,
               style: AppTextStyles.tajawal(

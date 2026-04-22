@@ -56,11 +56,11 @@ class _RegisterFormState extends State<RegisterForm> {
         const SizedBox(height: 24),
 
         AppTextField(
-          label: l10n.phone_number,
-          hintText: l10n.phone_hint,
+          label: l10n.email,
+          hintText: "example@email.com",
           controller: _emailController,
           keyboardType: TextInputType.emailAddress,
-          prefixIcon: Icons.phone_android_outlined,
+          prefixIcon: Icons.email_outlined,
         ),
         const SizedBox(height: 24),
 

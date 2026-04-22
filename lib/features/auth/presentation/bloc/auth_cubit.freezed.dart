@@ -55,13 +55,16 @@ extension AuthStatePatterns on AuthState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _Success value)?  success,TResult Function( _Error value)?  error,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( _Loading value)?  loading,TResult Function( _Success value)?  success,TResult Function( _CodeSent value)?  codeSent,TResult Function( _OtpVerified value)?  otpVerified,TResult Function( _PasswordResetSuccess value)?  passwordResetSuccess,TResult Function( _Error value)?  error,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case _Loading() when loading != null:
 return loading(_that);case _Success() when success != null:
-return success(_that);case _Error() when error != null:
+return success(_that);case _CodeSent() when codeSent != null:
+return codeSent(_that);case _OtpVerified() when otpVerified != null:
+return otpVerified(_that);case _PasswordResetSuccess() when passwordResetSuccess != null:
+return passwordResetSuccess(_that);case _Error() when error != null:
 return error(_that);case _:
   return orElse();
 
@@ -80,13 +83,16 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _Success value)  success,required TResult Function( _Error value)  error,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( _Loading value)  loading,required TResult Function( _Success value)  success,required TResult Function( _CodeSent value)  codeSent,required TResult Function( _OtpVerified value)  otpVerified,required TResult Function( _PasswordResetSuccess value)  passwordResetSuccess,required TResult Function( _Error value)  error,}){
 final _that = this;
 switch (_that) {
 case _Initial():
 return initial(_that);case _Loading():
 return loading(_that);case _Success():
-return success(_that);case _Error():
+return success(_that);case _CodeSent():
+return codeSent(_that);case _OtpVerified():
+return otpVerified(_that);case _PasswordResetSuccess():
+return passwordResetSuccess(_that);case _Error():
 return error(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -104,13 +110,16 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _Success value)?  success,TResult? Function( _Error value)?  error,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( _Loading value)?  loading,TResult? Function( _Success value)?  success,TResult? Function( _CodeSent value)?  codeSent,TResult? Function( _OtpVerified value)?  otpVerified,TResult? Function( _PasswordResetSuccess value)?  passwordResetSuccess,TResult? Function( _Error value)?  error,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case _Loading() when loading != null:
 return loading(_that);case _Success() when success != null:
-return success(_that);case _Error() when error != null:
+return success(_that);case _CodeSent() when codeSent != null:
+return codeSent(_that);case _OtpVerified() when otpVerified != null:
+return otpVerified(_that);case _PasswordResetSuccess() when passwordResetSuccess != null:
+return passwordResetSuccess(_that);case _Error() when error != null:
 return error(_that);case _:
   return null;
 
@@ -128,12 +137,15 @@ return error(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( UserEntity user)?  success,TResult Function( String message)?  error,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loading,TResult Function( UserEntity user)?  success,TResult Function()?  codeSent,TResult Function()?  otpVerified,TResult Function()?  passwordResetSuccess,TResult Function( String message)?  error,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
 return loading();case _Success() when success != null:
-return success(_that.user);case _Error() when error != null:
+return success(_that.user);case _CodeSent() when codeSent != null:
+return codeSent();case _OtpVerified() when otpVerified != null:
+return otpVerified();case _PasswordResetSuccess() when passwordResetSuccess != null:
+return passwordResetSuccess();case _Error() when error != null:
 return error(_that.message);case _:
   return orElse();
 
@@ -152,12 +164,15 @@ return error(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( UserEntity user)  success,required TResult Function( String message)  error,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loading,required TResult Function( UserEntity user)  success,required TResult Function()  codeSent,required TResult Function()  otpVerified,required TResult Function()  passwordResetSuccess,required TResult Function( String message)  error,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _Loading():
 return loading();case _Success():
-return success(_that.user);case _Error():
+return success(_that.user);case _CodeSent():
+return codeSent();case _OtpVerified():
+return otpVerified();case _PasswordResetSuccess():
+return passwordResetSuccess();case _Error():
 return error(_that.message);case _:
   throw StateError('Unexpected subclass');
 
@@ -175,12 +190,15 @@ return error(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( UserEntity user)?  success,TResult? Function( String message)?  error,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loading,TResult? Function( UserEntity user)?  success,TResult? Function()?  codeSent,TResult? Function()?  otpVerified,TResult? Function()?  passwordResetSuccess,TResult? Function( String message)?  error,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Loading() when loading != null:
 return loading();case _Success() when success != null:
-return success(_that.user);case _Error() when error != null:
+return success(_that.user);case _CodeSent() when codeSent != null:
+return codeSent();case _OtpVerified() when otpVerified != null:
+return otpVerified();case _PasswordResetSuccess() when passwordResetSuccess != null:
+return passwordResetSuccess();case _Error() when error != null:
 return error(_that.message);case _:
   return null;
 
@@ -327,6 +345,102 @@ $UserEntityCopyWith<$Res> get user {
   });
 }
 }
+
+/// @nodoc
+
+
+class _CodeSent implements AuthState {
+  const _CodeSent();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CodeSent);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AuthState.codeSent()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _OtpVerified implements AuthState {
+  const _OtpVerified();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _OtpVerified);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AuthState.otpVerified()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _PasswordResetSuccess implements AuthState {
+  const _PasswordResetSuccess();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PasswordResetSuccess);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AuthState.passwordResetSuccess()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 

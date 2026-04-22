@@ -58,4 +58,49 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthState.error(e.toString()));
     }
   }
+
+  Future<void> sendResetCode(String email) async {
+    if (email.trim().isEmpty) {
+      emit(const AuthState.error('يرجى إدخال البريد الإلكتروني'));
+      return;
+    }
+
+    emit(const AuthState.loading());
+    try {
+      await _authRepository.sendResetCode(email.trim());
+      emit(const AuthState.codeSent());
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
+
+  Future<void> verifyOtp({required String email, required String token}) async {
+    if (token.trim().length != 6) {
+      emit(const AuthState.error('رمز التحقق يجب أن يكون 6 أرقام'));
+      return;
+    }
+
+    emit(const AuthState.loading());
+    try {
+      await _authRepository.verifyOtp(email: email.trim(), token: token.trim());
+      emit(const AuthState.otpVerified());
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
+
+  Future<void> updatePassword(String newPassword) async {
+    if (newPassword.length < 6) {
+      emit(const AuthState.error('كلمة المرور يجب أن تكون 6 أحرف على الأقل'));
+      return;
+    }
+
+    emit(const AuthState.loading());
+    try {
+      await _authRepository.updatePassword(newPassword);
+      emit(const AuthState.passwordResetSuccess());
+    } catch (e) {
+      emit(AuthState.error(e.toString()));
+    }
+  }
 }
