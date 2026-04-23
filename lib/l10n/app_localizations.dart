@@ -303,6 +303,30 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'تم تحديث كلمة المرور بنجاح'**
   String get password_updated_success;
+
+  /// No description provided for @nav_home.
+  ///
+  /// In ar, this message translates to:
+  /// **'الرئيسية'**
+  String get nav_home;
+
+  /// No description provided for @nav_search.
+  ///
+  /// In ar, this message translates to:
+  /// **'البحث'**
+  String get nav_search;
+
+  /// No description provided for @nav_bookings.
+  ///
+  /// In ar, this message translates to:
+  /// **'حجوزاتي'**
+  String get nav_bookings;
+
+  /// No description provided for @nav_profile.
+  ///
+  /// In ar, this message translates to:
+  /// **'الملف الشخصي'**
+  String get nav_profile;
 }
 
 class _AppLocalizationsDelegate

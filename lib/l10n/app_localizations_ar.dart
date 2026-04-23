@@ -114,4 +114,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get password_updated_success => 'تم تحديث كلمة المرور بنجاح';
+
+  @override
+  String get nav_home => 'الرئيسية';
+
+  @override
+  String get nav_search => 'البحث';
+
+  @override
+  String get nav_bookings => 'حجوزاتي';
+
+  @override
+  String get nav_profile => 'الملف الشخصي';
 }

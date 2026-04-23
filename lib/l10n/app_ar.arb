@@ -33,5 +33,9 @@
   "new_password": "كلمة المرور الجديدة",
   "new_password_hint": "••••••••",
   "update_password_button": "تحديث كلمة المرور",
-  "password_updated_success": "تم تحديث كلمة المرور بنجاح"
+  "password_updated_success": "تم تحديث كلمة المرور بنجاح",
+  "nav_home": "الرئيسية",
+  "nav_search": "البحث",
+  "nav_bookings": "حجوزاتي",
+  "nav_profile": "الملف الشخصي"
 }
