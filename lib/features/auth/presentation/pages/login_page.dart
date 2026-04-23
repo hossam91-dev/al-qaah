@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
           state.whenOrNull(
             success: (user) {
               AppSnackBar.success(context, 'مرحباً ${user.name}');
-              // Navigate to home after success
+              context.go(AppRoutes.home);
             },
             error: (message) => AppSnackBar.error(context, message),
           );

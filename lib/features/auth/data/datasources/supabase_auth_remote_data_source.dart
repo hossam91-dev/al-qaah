@@ -84,4 +84,24 @@ class SupabaseAuthRemoteDataSource implements AuthRemoteDataSource {
   Future<void> updatePassword(String newPassword) async {
     await _supabase.auth.updateUser(UserAttributes(password: newPassword));
   }
+
+  @override
+  Future<UserEntity?> getCurrentUser() async {
+    final session = _supabase.auth.currentSession;
+    if (session == null) return null;
+
+    final userRow =
+        await _supabase.from('users').select().eq('id', session.user.id).single();
+
+    return UserEntity(
+      id: userRow['id'] as String,
+      email: userRow['email'] as String,
+      name: userRow['full_name'] as String?,
+    );
+  }
+
+  @override
+  Future<void> logout() async {
+    await _supabase.auth.signOut();
+  }
 }
