@@ -11,6 +11,9 @@ void main() async {
 
   await dotenv.load(fileName: ".env");
 
+  // await Firebase.initializeApp();
+  // await LoggingService.initialize();
+
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL']!,
     anonKey: dotenv.env['SUPABASE_ANON_KEY']!,

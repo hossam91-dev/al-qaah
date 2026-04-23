@@ -90,8 +90,11 @@ class SupabaseAuthRemoteDataSource implements AuthRemoteDataSource {
     final session = _supabase.auth.currentSession;
     if (session == null) return null;
 
-    final userRow =
-        await _supabase.from('users').select().eq('id', session.user.id).single();
+    final userRow = await _supabase
+        .from('users')
+        .select()
+        .eq('id', session.user.id)
+        .single();
 
     return UserEntity(
       id: userRow['id'] as String,
