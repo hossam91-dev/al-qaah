@@ -1,4 +1,7 @@
+import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
+import '../../../../core/error/error_handler.dart';
+import '../../../../core/error/failures.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../datasources/auth_remote_data_source.dart';
@@ -10,45 +13,86 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._remoteDataSource);
 
   @override
-  Future<UserEntity> login(String email, String password) {
-    return _remoteDataSource.login(email, password);
+  Future<Either<Failure, UserEntity>> login(
+    String email,
+    String password,
+  ) async {
+    try {
+      final user = await _remoteDataSource.login(email, password);
+      return Right(user);
+    } catch (e, s) {
+      return Left(ErrorHandler.handle(e, s));
+    }
   }
 
   @override
-  Future<UserEntity> register({
+  Future<Either<Failure, UserEntity>> register({
     required String email,
     required String fullName,
     required String password,
-  }) {
-    return _remoteDataSource.register(
-      email: email,
-      fullName: fullName,
-      password: password,
-    );
+  }) async {
+    try {
+      final user = await _remoteDataSource.register(
+        email: email,
+        fullName: fullName,
+        password: password,
+      );
+      return Right(user);
+    } catch (e, s) {
+      return Left(ErrorHandler.handle(e, s));
+    }
   }
 
   @override
-  Future<void> sendResetCode(String email) {
-    return _remoteDataSource.sendResetCode(email);
+  Future<Either<Failure, void>> sendResetCode(String email) async {
+    try {
+      await _remoteDataSource.sendResetCode(email);
+      return const Right(null);
+    } catch (e, s) {
+      return Left(ErrorHandler.handle(e, s));
+    }
   }
 
   @override
-  Future<void> verifyOtp({required String email, required String token}) {
-    return _remoteDataSource.verifyOtp(email: email, token: token);
+  Future<Either<Failure, void>> verifyOtp({
+    required String email,
+    required String token,
+  }) async {
+    try {
+      await _remoteDataSource.verifyOtp(email: email, token: token);
+      return const Right(null);
+    } catch (e, s) {
+      return Left(ErrorHandler.handle(e, s));
+    }
   }
 
   @override
-  Future<void> updatePassword(String newPassword) {
-    return _remoteDataSource.updatePassword(newPassword);
+  Future<Either<Failure, void>> updatePassword(String newPassword) async {
+    try {
+      await _remoteDataSource.updatePassword(newPassword);
+      return const Right(null);
+    } catch (e, s) {
+      return Left(ErrorHandler.handle(e, s));
+    }
   }
 
   @override
-  Future<UserEntity?> getCurrentUser() {
-    return _remoteDataSource.getCurrentUser();
+  Future<Either<Failure, UserEntity?>> getCurrentUser() async {
+    try {
+      final user = await _remoteDataSource.getCurrentUser();
+      return Right(user);
+    } catch (e, s) {
+      return Left(ErrorHandler.handle(e, s));
+    }
   }
 
   @override
-  Future<void> logout() {
-    return _remoteDataSource.logout();
+  Future<Either<Failure, void>> logout() async {
+    try {
+      await _remoteDataSource.logout();
+      return const Right(null);
+    } catch (e, s) {
+      return Left(ErrorHandler.handle(e, s));
+    }
   }
 }

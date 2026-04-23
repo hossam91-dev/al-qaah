@@ -20,7 +20,10 @@ class ValidationUtils {
     return null;
   }
 
-  static String? validateConfirmPassword(String? password, String? confirmPassword) {
+  static String? validateConfirmPassword(
+    String? password,
+    String? confirmPassword,
+  ) {
     if (confirmPassword == null || confirmPassword.isEmpty) {
       return 'يرجى تأكيد كلمة المرور';
     }
@@ -50,7 +53,7 @@ class ValidationUtils {
     }
     return null;
   }
-  
+
   static String? validateOtp(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'يرجى إدخال رمز التحقق';

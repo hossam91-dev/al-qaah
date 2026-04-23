@@ -15,21 +15,22 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this._authRepository) : super(const AuthState.initial());
 
   Future<void> checkAuth() async {
-    try {
-      final user = await _authRepository.getCurrentUser();
+    final result = await _authRepository.getCurrentUser();
+    result.fold((failure) => emit(const AuthState.initial()), (user) {
       if (user != null) {
         emit(AuthState.success(user));
       } else {
         emit(const AuthState.initial());
       }
-    } catch (_) {
-      emit(const AuthState.initial());
-    }
+    });
   }
 
   Future<void> logout() async {
-    await _authRepository.logout();
-    emit(const AuthState.initial());
+    final result = await _authRepository.logout();
+    result.fold(
+      (failure) => emit(AuthState.error(failure.message)),
+      (_) => emit(const AuthState.initial()),
+    );
   }
 
   Future<void> login(String email, String password) async {
@@ -46,12 +47,11 @@ class AuthCubit extends Cubit<AuthState> {
     }
 
     emit(const AuthState.loading());
-    try {
-      final user = await _authRepository.login(email, password);
-      emit(AuthState.success(user));
-    } catch (e) {
-      emit(AuthState.error(e.toString()));
-    }
+    final result = await _authRepository.login(email, password);
+    result.fold(
+      (failure) => emit(AuthState.error(failure.message)),
+      (user) => emit(AuthState.success(user)),
+    );
   }
 
   Future<void> register({
@@ -63,7 +63,10 @@ class AuthCubit extends Cubit<AuthState> {
     final fullNameError = ValidationUtils.validateFullName(fullName);
     final emailError = ValidationUtils.validateEmail(email);
     final passwordError = ValidationUtils.validatePassword(password);
-    final confirmPasswordError = ValidationUtils.validateConfirmPassword(password, confirmPassword);
+    final confirmPasswordError = ValidationUtils.validateConfirmPassword(
+      password,
+      confirmPassword,
+    );
 
     if (fullNameError != null) {
       emit(AuthState.error(fullNameError));
@@ -83,16 +86,15 @@ class AuthCubit extends Cubit<AuthState> {
     }
 
     emit(const AuthState.loading());
-    try {
-      final user = await _authRepository.register(
-        email: email.trim(),
-        fullName: fullName.trim(),
-        password: password,
-      );
-      emit(AuthState.success(user));
-    } catch (e) {
-      emit(AuthState.error(e.toString()));
-    }
+    final result = await _authRepository.register(
+      email: email.trim(),
+      fullName: fullName.trim(),
+      password: password,
+    );
+    result.fold(
+      (failure) => emit(AuthState.error(failure.message)),
+      (user) => emit(AuthState.success(user)),
+    );
   }
 
   Future<void> sendResetCode(String email) async {
@@ -103,12 +105,11 @@ class AuthCubit extends Cubit<AuthState> {
     }
 
     emit(const AuthState.loading());
-    try {
-      await _authRepository.sendResetCode(email.trim());
-      emit(const AuthState.codeSent());
-    } catch (e) {
-      emit(AuthState.error(e.toString()));
-    }
+    final result = await _authRepository.sendResetCode(email.trim());
+    result.fold(
+      (failure) => emit(AuthState.error(failure.message)),
+      (_) => emit(const AuthState.codeSent()),
+    );
   }
 
   Future<void> verifyOtp({required String email, required String token}) async {
@@ -119,12 +120,14 @@ class AuthCubit extends Cubit<AuthState> {
     }
 
     emit(const AuthState.loading());
-    try {
-      await _authRepository.verifyOtp(email: email.trim(), token: token.trim());
-      emit(const AuthState.otpVerified());
-    } catch (e) {
-      emit(AuthState.error(e.toString()));
-    }
+    final result = await _authRepository.verifyOtp(
+      email: email.trim(),
+      token: token.trim(),
+    );
+    result.fold(
+      (failure) => emit(AuthState.error(failure.message)),
+      (_) => emit(const AuthState.otpVerified()),
+    );
   }
 
   Future<void> updatePassword(String newPassword) async {
@@ -135,11 +138,10 @@ class AuthCubit extends Cubit<AuthState> {
     }
 
     emit(const AuthState.loading());
-    try {
-      await _authRepository.updatePassword(newPassword);
-      emit(const AuthState.passwordResetSuccess());
-    } catch (e) {
-      emit(AuthState.error(e.toString()));
-    }
+    final result = await _authRepository.updatePassword(newPassword);
+    result.fold(
+      (failure) => emit(AuthState.error(failure.message)),
+      (_) => emit(const AuthState.passwordResetSuccess()),
+    );
   }
 }
