@@ -11,6 +11,7 @@ class AppTextField extends StatelessWidget {
   final IconData? prefixIcon;
   final Widget? suffixIcon;
   final ValueChanged<String>? onChanged;
+  final String? Function(String?)? validator;
 
   const AppTextField({
     super.key,
@@ -23,6 +24,7 @@ class AppTextField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onChanged,
+    this.validator,
   });
 
   @override
@@ -34,21 +36,23 @@ class AppTextField extends StatelessWidget {
           Text(
             label!,
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              color: AppColors.onSurfaceVariant,
-              letterSpacing: 1.2,
-            ),
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.onSurfaceVariant,
+                  letterSpacing: 1.2,
+                ),
           ),
           const SizedBox(height: 4),
         ],
-        TextField(
+        TextFormField(
           controller: controller,
           obscureText: isPassword,
           keyboardType: keyboardType,
           onChanged: onChanged,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyLarge?.copyWith(color: AppColors.onSurface),
+          validator: validator,
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge
+              ?.copyWith(color: AppColors.onSurface),
           decoration: InputDecoration(
             hintText: hintText,
             errorText: errorText,
