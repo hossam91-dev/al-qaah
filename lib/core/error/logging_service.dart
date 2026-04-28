@@ -25,9 +25,13 @@ class LoggingService {
         fatal: fatal,
       );
     } else {
-      print('Logging Error: $error');
+      if (kDebugMode) {
+        print('Logging Error: $error');
+      }
       if (stackTrace != null) {
-        print('StackTrace: $stackTrace');
+        if (kDebugMode) {
+          print('StackTrace: $stackTrace');
+        }
       }
     }
   }
@@ -36,7 +40,9 @@ class LoggingService {
     if (kReleaseMode) {
       await FirebaseCrashlytics.instance.log(message);
     } else {
-      print('Log Message: $message');
+      if (kDebugMode) {
+        print('Log Message: $message');
+      }
     }
   }
 }

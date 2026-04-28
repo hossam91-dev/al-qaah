@@ -1,7 +1,7 @@
+import 'package:al_qaah/features/booking/presentation/screens/booking_request_screen.dart';
+import 'package:al_qaah/features/halls/presentation/screens/browse_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../home/presentation/pages/home_page.dart';
-import '../../../search/presentation/pages/search_page.dart';
-import '../../../bookings/presentation/pages/bookings_page.dart';
 import '../../../profile/presentation/pages/profile_page.dart';
 import '../../../../core/theme/app_colors.dart';
 
@@ -17,8 +17,8 @@ class _MainLayoutPageState extends State<MainLayoutPage> {
 
   final List<Widget> _screens = const [
     HomePage(),
-    SearchPage(),
-    BookingsPage(),
+    BrowseScreen(),
+    BookingRequestScreen(),
     ProfilePage(),
   ];
 
@@ -31,7 +31,7 @@ class _MainLayoutPageState extends State<MainLayoutPage> {
         margin: const EdgeInsets.fromLTRB(24, 0, 24, 20),
         height: 64,
         decoration: BoxDecoration(
-          color: AppColors.primary,
+          color: AppColors.primaryContainer,
           borderRadius: BorderRadius.circular(32),
           boxShadow: [
             BoxShadow(

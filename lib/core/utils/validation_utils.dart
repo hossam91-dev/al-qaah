@@ -1,65 +1,75 @@
+import 'package:al_qaah/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
+
 class ValidationUtils {
-  static String? validateEmail(String? value) {
+  static String? validateEmail(BuildContext context, String? value) {
+    final l10n = AppLocalizations.of(context)!;
     if (value == null || value.trim().isEmpty) {
-      return 'يرجى إدخال البريد الإلكتروني';
+      return l10n.validator_email_required;
     }
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
     if (!emailRegex.hasMatch(value)) {
-      return 'يرجى إدخال بريد إلكتروني صحيح';
+      return l10n.validator_email_invalid;
     }
     return null;
   }
 
-  static String? validatePassword(String? value) {
+  static String? validatePassword(BuildContext context, String? value) {
+    final l10n = AppLocalizations.of(context)!;
     if (value == null || value.isEmpty) {
-      return 'يرجى إدخال كلمة المرور';
+      return l10n.validator_password_required;
     }
     if (value.length < 6) {
-      return 'كلمة المرور يجب أن تكون 6 أحرف على الأقل';
+      return l10n.validator_password_short;
     }
     return null;
   }
 
   static String? validateConfirmPassword(
+    BuildContext context,
     String? password,
     String? confirmPassword,
   ) {
+    final l10n = AppLocalizations.of(context)!;
     if (confirmPassword == null || confirmPassword.isEmpty) {
-      return 'يرجى تأكيد كلمة المرور';
+      return l10n.validator_confirm_password_required;
     }
     if (password != confirmPassword) {
-      return 'كلمتا المرور غير متطابقتين';
+      return l10n.validator_passwords_not_match;
     }
     return null;
   }
 
-  static String? validateFullName(String? value) {
+  static String? validateFullName(BuildContext context, String? value) {
+    final l10n = AppLocalizations.of(context)!;
     if (value == null || value.trim().isEmpty) {
-      return 'يرجى إدخال الاسم بالكامل';
+      return l10n.validator_name_required;
     }
     if (value.trim().split(' ').length < 2) {
-      return 'يرجى إدخال الاسم الثنائي على الأقل';
+      return l10n.validator_name_short;
     }
     return null;
   }
 
-  static String? validatePhone(String? value) {
+  static String? validatePhone(BuildContext context, String? value) {
+    final l10n = AppLocalizations.of(context)!;
     if (value == null || value.trim().isEmpty) {
-      return 'يرجى إدخال رقم الهاتف';
+      return l10n.validator_phone_required;
     }
     final phoneRegex = RegExp(r'^(010|011|012|015)[0-9]{8}$');
     if (!phoneRegex.hasMatch(value)) {
-      return 'يرجى إدخال رقم هاتف مصري صحيح';
+      return l10n.validator_phone_invalid;
     }
     return null;
   }
 
-  static String? validateOtp(String? value) {
+  static String? validateOtp(BuildContext context, String? value) {
+    final l10n = AppLocalizations.of(context)!;
     if (value == null || value.trim().isEmpty) {
-      return 'يرجى إدخال رمز التحقق';
+      return l10n.validator_otp_required;
     }
     if (value.trim().length != 6) {
-      return 'رمز التحقق يجب أن يكون 6 أرقام';
+      return l10n.validator_otp_invalid;
     }
     return null;
   }

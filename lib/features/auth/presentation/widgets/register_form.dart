@@ -39,7 +39,6 @@ class _RegisterFormState extends State<RegisterForm> {
         fullName: _nameController.text,
         email: _emailController.text,
         password: _passwordController.text,
-        confirmPassword: _confirmPasswordController.text,
       );
     }
   }
@@ -57,7 +56,8 @@ class _RegisterFormState extends State<RegisterForm> {
             controller: _nameController,
             keyboardType: TextInputType.name,
             prefixIcon: Icons.person_outline,
-            validator: ValidationUtils.validateFullName,
+            validator: (value) =>
+                ValidationUtils.validateFullName(context, value),
           ),
           const SizedBox(height: 24),
           AppTextField(
@@ -66,7 +66,7 @@ class _RegisterFormState extends State<RegisterForm> {
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email_outlined,
-            validator: ValidationUtils.validateEmail,
+            validator: (value) => ValidationUtils.validateEmail(context, value),
           ),
           const SizedBox(height: 24),
           AppTextField(
@@ -75,7 +75,8 @@ class _RegisterFormState extends State<RegisterForm> {
             controller: _passwordController,
             isPassword: !_isPasswordVisible,
             prefixIcon: Icons.lock_outline,
-            validator: ValidationUtils.validatePassword,
+            validator: (value) =>
+                ValidationUtils.validatePassword(context, value),
             suffixIcon: IconButton(
               icon: Icon(
                 _isPasswordVisible
@@ -99,6 +100,7 @@ class _RegisterFormState extends State<RegisterForm> {
             isPassword: !_isConfirmPasswordVisible,
             prefixIcon: Icons.lock_outline,
             validator: (value) => ValidationUtils.validateConfirmPassword(
+              context,
               _passwordController.text,
               value,
             ),

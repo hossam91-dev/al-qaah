@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import '../../../../core/utils/validation_utils.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repositories/auth_repository.dart';
 
@@ -34,18 +33,6 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> login(String email, String password) async {
-    final emailError = ValidationUtils.validateEmail(email);
-    final passwordError = ValidationUtils.validatePassword(password);
-
-    if (emailError != null) {
-      emit(AuthState.error(emailError));
-      return;
-    }
-    if (passwordError != null) {
-      emit(AuthState.error(passwordError));
-      return;
-    }
-
     emit(const AuthState.loading());
     final result = await _authRepository.login(email, password);
     result.fold(
@@ -58,33 +45,7 @@ class AuthCubit extends Cubit<AuthState> {
     required String fullName,
     required String email,
     required String password,
-    required String confirmPassword,
   }) async {
-    final fullNameError = ValidationUtils.validateFullName(fullName);
-    final emailError = ValidationUtils.validateEmail(email);
-    final passwordError = ValidationUtils.validatePassword(password);
-    final confirmPasswordError = ValidationUtils.validateConfirmPassword(
-      password,
-      confirmPassword,
-    );
-
-    if (fullNameError != null) {
-      emit(AuthState.error(fullNameError));
-      return;
-    }
-    if (emailError != null) {
-      emit(AuthState.error(emailError));
-      return;
-    }
-    if (passwordError != null) {
-      emit(AuthState.error(passwordError));
-      return;
-    }
-    if (confirmPasswordError != null) {
-      emit(AuthState.error(confirmPasswordError));
-      return;
-    }
-
     emit(const AuthState.loading());
     final result = await _authRepository.register(
       email: email.trim(),
@@ -98,12 +59,6 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> sendResetCode(String email) async {
-    final emailError = ValidationUtils.validateEmail(email);
-    if (emailError != null) {
-      emit(AuthState.error(emailError));
-      return;
-    }
-
     emit(const AuthState.loading());
     final result = await _authRepository.sendResetCode(email.trim());
     result.fold(
@@ -113,12 +68,6 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> verifyOtp({required String email, required String token}) async {
-    final otpError = ValidationUtils.validateOtp(token);
-    if (otpError != null) {
-      emit(AuthState.error(otpError));
-      return;
-    }
-
     emit(const AuthState.loading());
     final result = await _authRepository.verifyOtp(
       email: email.trim(),
@@ -131,12 +80,6 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> updatePassword(String newPassword) async {
-    final passwordError = ValidationUtils.validatePassword(newPassword);
-    if (passwordError != null) {
-      emit(AuthState.error(passwordError));
-      return;
-    }
-
     emit(const AuthState.loading());
     final result = await _authRepository.updatePassword(newPassword);
     result.fold(
