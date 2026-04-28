@@ -46,7 +46,8 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             controller: _passwordController,
             isPassword: !_isPasswordVisible,
             prefixIcon: Icons.lock_outline,
-            validator: ValidationUtils.validatePassword,
+            validator: (value) =>
+                ValidationUtils.validatePassword(context, value),
             suffixIcon: IconButton(
               icon: Icon(
                 _isPasswordVisible
@@ -67,6 +68,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             isPassword: !_isPasswordVisible,
             prefixIcon: Icons.lock_reset_outlined,
             validator: (value) => ValidationUtils.validateConfirmPassword(
+              context,
               _passwordController.text,
               value,
             ),

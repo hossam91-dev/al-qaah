@@ -36,7 +36,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             controller: widget.controller,
             keyboardType: TextInputType.emailAddress,
             prefixIcon: Icons.email_outlined,
-            validator: ValidationUtils.validateEmail,
+            validator: (value) => ValidationUtils.validateEmail(context, value),
           ),
           const SizedBox(height: 48),
           BlocBuilder<AuthCubit, AuthState>(

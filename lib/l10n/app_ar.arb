@@ -1,6 +1,6 @@
 {
   "login_title": "تسجيل الدخول",
-  "login_subtitle": "مرحباً بك مجدداً في لفاف، عالم الفخامة",
+  "login_subtitle": "مرحباً بك مجدداً في القاعة، عالم الفخامة",
   "phone_number": "رقم الهاتف",
   "phone_hint": "012 XXXX XXXX",
   "email": "البريد الإلكتروني",
@@ -10,7 +10,7 @@
   "create_account": "إنشاء حساب جديد",
   "dont_have_account": "ليس لديك حساب؟",
   "register_title": "إنشاء حساب جديد",
-  "register_subtitle": "انضم إلى لفاف وابدأ رحلتك",
+  "register_subtitle": "انضم إلى القاعة وابدأ رحلتك",
   "full_name": "الاسم بالكامل",
   "full_name_hint": "الاسم الثلاثي",
   "confirm_password": "تأكيد كلمة المرور",
@@ -37,5 +37,138 @@
   "nav_home": "الرئيسية",
   "nav_search": "البحث",
   "nav_bookings": "حجوزاتي",
-  "nav_profile": "الملف الشخصي"
+  "nav_profile": "الملف الشخصي",
+  "welcome_back": "مرحباً بك، {name}",
+  "@welcome_back": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "discover_perfect_hall": "اكتشف قاعتك المثالية",
+  "featured_halls": "قاعات مميزة",
+  "all_halls": "كل القاعات",
+  "see_all": "عرض الكل",
+  "capacity_person": "{count} فرد",
+  "@capacity_person": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "currency_egp": "ج.م",
+  "hero_title": "ابدئي رحلة ليلة العمر",
+  "hero_subtitle": "نحن هنا لنجعل من زفافكِ لوحة فنية خالدة في أرقى قاعات مصر.",
+  "browse_halls": "تصفح القاعات",
+  "browse_halls_desc": "استكشفي تشكيلتنا المختارة من أفخم دور المناسبات",
+  "we_choose_for_you": "احنا نختارلك",
+  "we_choose_desc": "دعي منسقينا المحترفين يجدون لك القاعة المثالية بناءً على ذوقك وميزانيتك",
+  "magazine_title": "مجلة القاعة الرقمية",
+  "magazine_desc": "احصلي على نصائح حصرية من كبار منسقي الأفراح وتوجهات الموضة لهذا الموسم مباشرة في بريدك.",
+  "app_name": "القاعة",
+  "greeting": "أهلاً بك",
+  "explore_now": "استكشف الآن",
+  "start_smart_experience": "ابدئي التجربة الذكية",
+  "email_hint": "بريدك الإلكتروني",
+  "subscribe_now": "اشتركي الآن",
+  "up_to_capacity": "حتى {count} فرد",
+  "@up_to_capacity": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "search_title": "قاعات النخبة",
+  "search_hint": "ابحث عن القاعة المثالية...",
+  "booking_status_title": "تتبع حالة طلب الحجز",
+  "booking_accepted_msg": "تم قبول طلبك من قبل إدارة القاعة. نحن الآن بانتظار إتمام عملية الدفع النهائية لتأكيد حجزك بشكل رسمي.",
+  "cancellation_policy_title": "سياسة الإلغاء",
+  "cancellation_policy_desc": "يمكنك استرداد كامل المبلغ في حال تم الإلغاء قبل الموعد بـ 30 يوماً على الأقل. تطبق الشروط والأحكام.",
+  "pay_now": "إتمام الدفع",
+  "profile_title": "الملف الشخصي",
+  "account_settings": "الحساب",
+  "my_bookings_menu": "حجوزاتي",
+  "support": "الدعم",
+  "logout": "تسجيل الخروج",
+  "edit_personal_data": "تعديل البيانات الشخصية",
+  "change_mobile_number": "تغيير رقم الموبايل",
+  "change_password": "تغيير كلمة المرور",
+  "current_bookings": "حجوزاتي الحالية",
+  "bookings_history": "سجل الحجوزات",
+  "saved_halls": "القاعات المحفوظة",
+  "contact_us": "تواصل معنا",
+  "app_rating": "تقييم التطبيق",
+  "terms_and_privacy": "الشروط والخصوصية",
+  "account_section": "الحساب",
+  "my_bookings_section": "حجوزاتي",
+  "support_section": "الدعم",
+  "bookings_count": "الحجوزات",
+  "saved_halls_count": "القاعات المحفوظة",
+  "reviews_count": "التقييمات",
+  "welcome_user": "مرحباً",
+  "search_results": "نتائج البحث",
+  "halls_elite": "قاعات النخبة",
+  "halls_available": "{count} قاعة متاحة",
+  "@halls_available": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "filter_region": "المنطقة",
+  "filter_price": "السعر",
+  "filter_capacity": "السعة",
+  "search_halls_hint": "ابحث عن قاعة أحلامك...",
+  "booking_details_royal": "تفاصيل حجزك الملكي",
+  "booking_status_tracking": "تتبع حالة\nطلب الحجز",
+  "status_pending": "معلق",
+  "status_accepted": "مقبول",
+  "status_confirmed": "تم التأكيد",
+  "total_cost": "إجمالي التكلفة",
+  "contact_hall": "تواصل مع القاعة",
+  "reference_number": "رقم المرجع",
+  "cancellation_policy_label": "سياسة الإلغاء: {policy}",
+  "@cancellation_policy_label": {
+    "placeholders": {
+      "policy": {
+        "type": "String"
+      }
+    }
+  },
+  "cancellation_policy_full_text": "يمكنك استرداد كامل المبلغ في حال تم الإلغاء قبل الموعد بـ 30 يوماً على الأقل. تطبق الشروط والأحكام.",
+  "guests_count": "{count} ضيف",
+  "@guests_count": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "error_no_internet": "لا يوجد اتصال بالإنترنت، يرجى التحقق من الشبكة",
+  "error_unexpected": "حدث خطأ غير متوقع، يرجى المحاولة لاحقاً",
+  "error_invalid_credentials": "بيانات الدخول غير صحيحة، يرجى التأكد من البريد وكلمة المرور",
+  "error_email_exists": "هذا البريد الإلكتروني مسجل بالفعل",
+  "error_confirm_email": "يرجى تأكيد بريدك الإلكتروني من خلال الرابط المرسل إليك",
+  "error_too_many_attempts": "محاولات كثيرة جداً، يرجى المحاولة مرة أخرى بعد قليل",
+  "error_data_exists": "هذه البيانات مسجلة بالفعل في النظام",
+  "error_data_linked": "عذراً، لا يمكن إتمام العملية لوجود بيانات مرتبطة بها",
+  "error_database": "خطأ في الوصول لقاعدة البيانات، يرجى التواصل مع الدعم",
+  "error_file_not_found": "الملف غير موجود",
+  "error_file_too_large": "حجم الملف كبير جداً",
+  "validator_email_required": "يرجى إدخال البريد الإلكتروني",
+  "validator_email_invalid": "يرجى إدخال بريد إلكتروني صحيح",
+  "validator_password_required": "يرجى إدخال كلمة المرور",
+  "validator_password_short": "كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+  "validator_confirm_password_required": "يرجى تأكيد كلمة المرور",
+  "validator_passwords_not_match": "كلمتا المرور غير متطابقتين",
+  "validator_name_required": "يرجى إدخال الاسم بالكامل",
+  "validator_name_short": "يرجى إدخال الاسم الثنائي على الأقل",
+  "validator_phone_required": "يرجى إدخال رقم الهاتف",
+  "validator_phone_invalid": "يرجى إدخال رقم هاتف مصري صحيح",
+  "validator_otp_required": "يرجى إدخال رمز التحقق",
+  "validator_otp_invalid": "رمز التحقق يجب أن يكون 6 أرقام"
 }

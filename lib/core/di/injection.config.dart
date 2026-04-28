@@ -22,6 +22,12 @@ import '../../features/auth/data/repositories/auth_repository_impl.dart'
     as _i153;
 import '../../features/auth/domain/repositories/auth_repository.dart' as _i787;
 import '../../features/auth/presentation/bloc/auth_cubit.dart' as _i52;
+import '../../features/home/data/datasources/home_remote_data_source.dart'
+    as _i362;
+import '../../features/home/data/repositories/home_repository_impl.dart'
+    as _i76;
+import '../../features/home/domain/repositories/home_repository.dart' as _i0;
+import '../../features/home/presentation/bloc/home_cubit.dart' as _i816;
 import '../network/network_module.dart' as _i200;
 import 'injection.dart' as _i464;
 
@@ -42,8 +48,17 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i787.AuthRepository>(
       () => _i153.AuthRepositoryImpl(gh<_i107.AuthRemoteDataSource>()),
     );
+    gh.lazySingleton<_i362.HomeRemoteDataSource>(
+      () => _i362.HomeRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.factory<_i52.AuthCubit>(
       () => _i52.AuthCubit(gh<_i787.AuthRepository>()),
+    );
+    gh.lazySingleton<_i0.HomeRepository>(
+      () => _i76.HomeRepositoryImpl(gh<_i362.HomeRemoteDataSource>()),
+    );
+    gh.factory<_i816.HomeCubit>(
+      () => _i816.HomeCubit(gh<_i0.HomeRepository>()),
     );
     return this;
   }
