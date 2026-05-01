@@ -31,15 +31,13 @@ class BookingActionsCard extends StatelessWidget {
             children: [
               Text(
                 l10n.total_cost,
-                style: AppTextStyles.tajawal(
-                  fontSize: 14,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   color: AppColors.onPrimaryContainer.withValues(alpha: 0.7),
                 ),
               ),
               Text(
                 '${totalPrice.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')} ${l10n.currency_egp}',
-                style: AppTextStyles.tajawal(
-                  fontSize: 24,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -52,8 +50,7 @@ class BookingActionsCard extends StatelessWidget {
             icon: const Icon(Icons.payments_outlined, size: 20),
             label: Text(
               l10n.pay_now,
-              style: AppTextStyles.tajawal(
-                fontSize: 16,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: AppColors.primary,
               ),
@@ -73,8 +70,7 @@ class BookingActionsCard extends StatelessWidget {
             icon: const Icon(Icons.chat_bubble_outline_rounded, size: 20),
             label: Text(
               l10n.contact_hall,
-              style: AppTextStyles.tajawal(
-                fontSize: 16,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),

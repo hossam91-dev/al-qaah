@@ -111,8 +111,7 @@ class HallGridCard extends StatelessWidget {
                     ),
                     child: Text(
                       region,
-                      style: AppTextStyles.tajawal(
-                        fontSize: 10,
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
                       ),
@@ -130,8 +129,7 @@ class HallGridCard extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: AppTextStyles.tajawal(
-                    fontSize: 14,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: AppColors.onSurface,
                   ),
@@ -150,8 +148,7 @@ class HallGridCard extends StatelessWidget {
                     const SizedBox(width: 4),
                     Text(
                       'حتى $capacity شخص',
-                      style: AppTextStyles.tajawal(
-                        fontSize: 10,
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: AppColors.outline,
                       ),
                     ),
@@ -164,8 +161,7 @@ class HallGridCard extends StatelessWidget {
                   children: [
                     Text(
                       '${price.toStringAsFixed(0)} ج.م',
-                      style: AppTextStyles.tajawal(
-                        fontSize: 12,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: AppColors.primary,
                       ),
@@ -174,13 +170,13 @@ class HallGridCard extends StatelessWidget {
                       children: [
                         Text(
                           rating.toString(),
-                          style: AppTextStyles.tajawal(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: const Color(
-                              0xFFFFC107,
-                            ), // Gold/Amber standard
-                          ),
+                          style: Theme.of(context).textTheme.labelMedium
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: const Color(
+                                  0xFFFFC107,
+                                ), // Gold/Amber standard
+                              ),
                         ),
                         const Icon(
                           Icons.star_rounded,

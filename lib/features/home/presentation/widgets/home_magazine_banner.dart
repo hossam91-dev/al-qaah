@@ -22,8 +22,7 @@ class HomeMagazineBanner extends StatelessWidget {
         children: [
           Text(
             l10n.magazine_title,
-            style: AppTextStyles.tajawal(
-              fontSize: 20,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
@@ -32,8 +31,7 @@ class HomeMagazineBanner extends StatelessWidget {
           Text(
             l10n.magazine_desc,
             textAlign: TextAlign.center,
-            style: AppTextStyles.tajawal(
-              fontSize: 14,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: Colors.white.withValues(alpha: 0.8),
               height: 1.6,
             ),
@@ -50,9 +48,8 @@ class HomeMagazineBanner extends StatelessWidget {
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 hintText: l10n.email_hint,
-                hintStyle: AppTextStyles.tajawal(
+                hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Colors.white.withValues(alpha: 0.5),
-                  fontSize: 14,
                 ),
                 border: InputBorder.none,
                 contentPadding: const EdgeInsets.symmetric(
@@ -79,9 +76,9 @@ class HomeMagazineBanner extends StatelessWidget {
               ),
               child: Text(
                 l10n.subscribe_now,
-                style: AppTextStyles.tajawal(
-                  fontSize: 14,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
             ),

@@ -21,15 +21,13 @@ class HomeAppBar extends StatelessWidget {
           children: [
             Text(
               l10n.greeting,
-              style: AppTextStyles.tajawal(
-                fontSize: 10,
-                color: AppColors.outline,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.labelSmall?.copyWith(color: AppColors.outline),
             ),
             Text(
               'ياسمين', // Mock user name
-              style: AppTextStyles.tajawal(
-                fontSize: 14,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: AppColors.onSurface,
               ),

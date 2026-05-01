@@ -35,8 +35,7 @@ class BookingCancellationPolicy extends StatelessWidget {
               l10n.cancellation_policy_label(
                 l10n.cancellation_policy_full_text,
               ),
-              style: AppTextStyles.tajawal(
-                fontSize: 11,
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
                 color: AppColors.onSurfaceVariant,
                 height: 1.5,
               ),

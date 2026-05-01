@@ -101,11 +101,11 @@ class VenueCard extends StatelessWidget {
                               const SizedBox(width: 4),
                               Text(
                                 featured.avgRating?.toStringAsFixed(1) ?? '0.0',
-                                style: AppTextStyles.tajawal(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.onSurface,
-                                ),
+                                style: Theme.of(context).textTheme.labelSmall
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.onSurface,
+                                    ),
                               ),
                             ],
                           ),
@@ -120,19 +120,17 @@ class VenueCard extends StatelessWidget {
                       children: [
                         Text(
                           featured.area ?? '',
-                          style: AppTextStyles.tajawal(
-                            fontSize: 11,
-                            color: AppColors.outline,
-                          ),
+                          style: Theme.of(context).textTheme.labelSmall
+                              ?.copyWith(color: AppColors.outline),
                         ),
                         const SizedBox(height: 4),
                         Text(
                           featured.name,
-                          style: AppTextStyles.tajawal(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.primary,
-                          ),
+                          style: Theme.of(context).textTheme.titleMedium
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.primary,
+                              ),
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -142,10 +140,8 @@ class VenueCard extends StatelessWidget {
                               children: [
                                 Text(
                                   l10n.capacity_person(featured.capacity ?? 0),
-                                  style: AppTextStyles.tajawal(
-                                    fontSize: 11,
-                                    color: AppColors.outline,
-                                  ),
+                                  style: Theme.of(context).textTheme.labelSmall
+                                      ?.copyWith(color: AppColors.outline),
                                 ),
                                 const SizedBox(width: 4),
                                 const Icon(
@@ -157,11 +153,11 @@ class VenueCard extends StatelessWidget {
                             ),
                             Text(
                               '${featured.pricePerEvent?.toStringAsFixed(0) ?? '0'} ${l10n.currency_egp}',
-                              style: AppTextStyles.tajawal(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primary,
-                              ),
+                              style: Theme.of(context).textTheme.titleMedium
+                                  ?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: AppColors.primary,
+                                  ),
                             ),
                           ],
                         ),

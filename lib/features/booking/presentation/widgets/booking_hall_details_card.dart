@@ -38,8 +38,7 @@ class BookingHallDetailsCard extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             'قاعة الثريا الكبرى',
-            style: AppTextStyles.tajawal(
-              fontSize: 20,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: AppColors.onSurface,
             ),
@@ -55,19 +54,23 @@ class BookingHallDetailsCard extends StatelessWidget {
               const SizedBox(width: 4),
               Text(
                 'التجمع الخامس، القاهرة',
-                style: AppTextStyles.tajawal(
-                  fontSize: 14,
-                  color: AppColors.outline,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleSmall?.copyWith(color: AppColors.outline),
               ),
             ],
           ),
           const SizedBox(height: 16),
           Row(
             children: [
-              _buildInfoChip(Icons.calendar_month_outlined, '15 أكتوبر 2024'),
+              _buildInfoChip(
+                context,
+                Icons.calendar_month_outlined,
+                '15 أكتوبر 2024',
+              ),
               const SizedBox(width: 12),
               _buildInfoChip(
+                context,
                 Icons.people_outline_rounded,
                 AppLocalizations.of(context)!.guests_count('400 - 500'),
               ),
@@ -78,7 +81,7 @@ class BookingHallDetailsCard extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoChip(IconData icon, String label) {
+  Widget _buildInfoChip(BuildContext context, IconData icon, String label) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
@@ -91,8 +94,7 @@ class BookingHallDetailsCard extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             label,
-            style: AppTextStyles.tajawal(
-              fontSize: 12,
+            style: Theme.of(context).textTheme.labelMedium?.copyWith(
               color: AppColors.onSurfaceVariant,
             ),
           ),

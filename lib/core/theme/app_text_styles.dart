@@ -1,107 +1,109 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
   AppTextStyles._();
 
+  static const String fontFamily = 'AlNaseeb';
+
   static TextTheme get textTheme {
-    return TextTheme(
-      displayLarge: GoogleFonts.notoSerif(
+    return const TextTheme(
+      displayLarge: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 56,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
         height: 1.2,
       ),
-      displayMedium: GoogleFonts.notoSerif(
+      displayMedium: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 45,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
         height: 1.2,
       ),
-      displaySmall: GoogleFonts.notoSerif(
+      displaySmall: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 36,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
         height: 1.2,
       ),
-      headlineLarge: GoogleFonts.notoSerif(
+      headlineLarge: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 32,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
       ),
-      headlineMedium: GoogleFonts.notoSerif(
+      headlineMedium: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 28,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
-      headlineSmall: GoogleFonts.notoSerif(
+      headlineSmall: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 24,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
-      titleLarge: GoogleFonts.plusJakartaSans(
+      titleLarge: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 22,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
-      titleMedium: GoogleFonts.plusJakartaSans(
+      titleMedium: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 18,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
-      titleSmall: GoogleFonts.plusJakartaSans(
+      titleSmall: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurface,
       ),
-      bodyLarge: GoogleFonts.plusJakartaSans(
+      bodyLarge: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 16,
         fontWeight: FontWeight.normal,
         color: AppColors.onSurface,
         height: 1.5,
       ),
-      bodyMedium: GoogleFonts.plusJakartaSans(
+      bodyMedium: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 14,
         fontWeight: FontWeight.normal,
         color: AppColors.onSurfaceVariant,
         height: 1.5,
       ),
-      bodySmall: GoogleFonts.plusJakartaSans(
+      bodySmall: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 12,
         fontWeight: FontWeight.normal,
         color: AppColors.onSurfaceVariant,
         height: 1.5,
       ),
-      labelLarge: GoogleFonts.plusJakartaSans(
+      labelLarge: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurface,
       ),
-      labelMedium: GoogleFonts.plusJakartaSans(
+      labelMedium: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurfaceVariant,
       ),
-      labelSmall: GoogleFonts.plusJakartaSans(
+      labelSmall: TextStyle(
+        fontFamily: fontFamily,
         fontSize: 11,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurfaceVariant,
       ),
-    );
-  }
-
-  static TextStyle tajawal({
-    double fontSize = 14,
-    FontWeight fontWeight = FontWeight.normal,
-    Color color = AppColors.onSurface,
-    double? height,
-  }) {
-    return GoogleFonts.tajawal(
-      fontSize: fontSize,
-      fontWeight: fontWeight,
-      color: color,
-      height: height ?? 1.6,
     );
   }
 }

@@ -425,4 +425,24 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get validator_otp_invalid => 'رمز التحقق يجب أن يكون 6 أرقام';
+
+  @override
+  String get empty_state_title => 'لا توجد نتائج';
+
+  @override
+  String get empty_state_desc =>
+      'عذراً، لم نجد أي قاعات تطابق بحثك حالياً. جرب تغيير الفلاتر أو البحث بكلمات أخرى.';
+
+  @override
+  String get empty_state_button => 'البحث من جديد';
+
+  @override
+  String get no_internet_title => 'لا يوجد اتصال بالإنترنت';
+
+  @override
+  String get no_internet_desc =>
+      'يبدو أنك غير متصل بالشبكة. يرجى التحقق من اتصالك بالإنترنت للمتابعة.';
+
+  @override
+  String get no_internet_button => 'إعادة المحاولة';
 }

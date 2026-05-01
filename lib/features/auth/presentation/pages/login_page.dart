@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/di/injection.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../bloc/auth_cubit.dart';
@@ -52,9 +51,8 @@ class LoginPage extends StatelessWidget {
                     onPressed: () => context.push(AppRoutes.forgotPassword),
                     child: Text(
                       l10n.forgot_password,
-                      style: AppTextStyles.tajawal(
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         color: AppColors.primary,
-                        fontSize: 14,
                       ),
                     ),
                   ),

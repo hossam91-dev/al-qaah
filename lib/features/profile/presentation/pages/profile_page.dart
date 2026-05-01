@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../widgets/profile_header.dart';
 import '../widgets/profile_stats_card.dart';
 import '../widgets/profile_menu_item.dart';
@@ -43,12 +42,7 @@ class ProfilePage extends StatelessWidget {
 
           // Menu Sections
           Padding(
-            padding: const EdgeInsets.fromLTRB(
-              20,
-              0,
-              20,
-              100,
-            ), // Increased bottom padding
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
             child: Column(
               children: [
                 // Account Section
@@ -126,8 +120,7 @@ class ProfilePage extends StatelessWidget {
                   icon: const Icon(Icons.logout_rounded, size: 20),
                   label: Text(
                     l10n.logout,
-                    style: AppTextStyles.tajawal(
-                      fontSize: 16,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: AppColors.primary,
                     ),

@@ -34,8 +34,7 @@ class AiRecommendationCard extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             l10n.we_choose_for_you,
-            style: AppTextStyles.tajawal(
-              fontSize: 20,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: AppColors.onSurface,
             ),
@@ -44,8 +43,7 @@ class AiRecommendationCard extends StatelessWidget {
           Text(
             l10n.we_choose_desc,
             textAlign: TextAlign.right,
-            style: AppTextStyles.tajawal(
-              fontSize: 13,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: AppColors.outline,
               height: 1.5,
             ),
@@ -56,8 +54,7 @@ class AiRecommendationCard extends StatelessWidget {
             children: [
               Text(
                 l10n.start_smart_experience,
-                style: AppTextStyles.tajawal(
-                  fontSize: 14,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: AppColors.primary,
                 ),

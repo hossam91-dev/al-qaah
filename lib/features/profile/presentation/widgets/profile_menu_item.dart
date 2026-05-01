@@ -27,8 +27,7 @@ class ProfileMenuItem extends StatelessWidget {
             Expanded(
               child: Text(
                 title,
-                style: AppTextStyles.tajawal(
-                  fontSize: 14,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w500,
                   color: AppColors.onSurface,
                 ),

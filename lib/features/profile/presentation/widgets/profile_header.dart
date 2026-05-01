@@ -87,8 +87,7 @@ class ProfileHeader extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   name,
-                  style: AppTextStyles.tajawal(
-                    fontSize: 22,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -96,8 +95,7 @@ class ProfileHeader extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text(
                   phone,
-                  style: AppTextStyles.tajawal(
-                    fontSize: 14,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: Colors.white.withValues(alpha: 0.7),
                   ),
                 ),

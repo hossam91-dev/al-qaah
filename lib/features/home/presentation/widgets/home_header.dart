@@ -26,8 +26,7 @@ class HomeHeader extends StatelessWidget {
                   children: [
                     Text(
                       l10n.greeting,
-                      style: AppTextStyles.tajawal(
-                        fontSize: 12,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: AppColors.onSurfaceVariant,
                       ),
                     ),
@@ -40,11 +39,11 @@ class HomeHeader extends StatelessWidget {
                         );
                         return Text(
                           name,
-                          style: AppTextStyles.tajawal(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.primaryContainer,
-                          ),
+                          style: Theme.of(context).textTheme.titleSmall
+                              ?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.primaryContainer,
+                              ),
                         );
                       },
                     ),
@@ -92,8 +91,7 @@ class HomeHeader extends StatelessWidget {
               child: Text(
                 l10n.hero_subtitle,
                 textAlign: TextAlign.start,
-                style: AppTextStyles.tajawal(
-                  fontSize: 15,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: AppColors.onSurfaceVariant,
                   height: 1.6,
                 ),
