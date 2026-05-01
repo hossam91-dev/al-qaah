@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../widgets/booking_status_tracker.dart';
 import '../widgets/booking_hall_details_card.dart';
@@ -26,15 +25,13 @@ class BookingRequestScreen extends StatelessWidget {
               children: [
                 Text(
                   l10n.booking_details_royal,
-                  style: AppTextStyles.tajawal(
-                    fontSize: 12,
-                    color: AppColors.outline,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.labelMedium?.copyWith(color: AppColors.outline),
                 ),
                 Text(
                   l10n.booking_status_tracking,
-                  style: AppTextStyles.tajawal(
-                    fontSize: 32,
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: AppColors.onSurface,
                     height: 1.2,

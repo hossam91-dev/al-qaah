@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/utils/validation_utils.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -23,8 +22,7 @@ class OtpVerificationForm extends StatelessWidget {
     final defaultTheme = PinTheme(
       width: 56,
       height: 56,
-      textStyle: AppTextStyles.tajawal(
-        fontSize: 22,
+      textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
         color: AppColors.onSurface,
         fontWeight: FontWeight.bold,
       ),
@@ -60,7 +58,7 @@ class OtpVerificationForm extends StatelessWidget {
           onPressed: () => context.read<AuthCubit>().sendResetCode(email),
           child: Text(
             l10n.resend_code,
-            style: AppTextStyles.tajawal(
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
               color: AppColors.primary,
               fontWeight: FontWeight.bold,
             ),

@@ -30,6 +30,7 @@ class BookingStatusTracker extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               _buildStep(
+                context: context,
                 label: l10n.status_pending,
                 isActive: currentStatus >= 0,
                 isCompleted: currentStatus > 0,
@@ -37,6 +38,7 @@ class BookingStatusTracker extends StatelessWidget {
               ),
               _buildDivider(isCompleted: currentStatus > 0),
               _buildStep(
+                context: context,
                 label: l10n.status_accepted,
                 isActive: currentStatus >= 1,
                 isCompleted: currentStatus > 1,
@@ -44,6 +46,7 @@ class BookingStatusTracker extends StatelessWidget {
               ),
               _buildDivider(isCompleted: currentStatus > 1),
               _buildStep(
+                context: context,
                 label: l10n.status_confirmed,
                 isActive: currentStatus >= 2,
                 isCompleted: currentStatus > 2,
@@ -55,8 +58,7 @@ class BookingStatusTracker extends StatelessWidget {
           Text(
             l10n.booking_accepted_msg,
             textAlign: TextAlign.center,
-            style: AppTextStyles.tajawal(
-              fontSize: 12,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: AppColors.outline,
               height: 1.6,
             ),
@@ -67,6 +69,7 @@ class BookingStatusTracker extends StatelessWidget {
   }
 
   Widget _buildStep({
+    required BuildContext context,
     required String label,
     required bool isActive,
     required bool isCompleted,
@@ -103,8 +106,7 @@ class BookingStatusTracker extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           label,
-          style: AppTextStyles.tajawal(
-            fontSize: 12,
+          style: Theme.of(context).textTheme.labelMedium?.copyWith(
             fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
             color: isActive ? AppColors.onSurface : AppColors.outline,
           ),

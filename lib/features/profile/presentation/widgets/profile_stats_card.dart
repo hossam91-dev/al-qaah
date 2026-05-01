@@ -28,8 +28,7 @@ class ProfileStatsCard extends StatelessWidget {
           children: [
             Text(
               value,
-              style: AppTextStyles.tajawal(
-                fontSize: 20,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: AppColors.onSurface,
               ),
@@ -37,10 +36,9 @@ class ProfileStatsCard extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               label,
-              style: AppTextStyles.tajawal(
-                fontSize: 10,
-                color: AppColors.outline,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.labelSmall?.copyWith(color: AppColors.outline),
             ),
           ],
         ),

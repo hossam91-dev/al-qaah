@@ -17,8 +17,7 @@ class FeaturedVenuesHeader extends StatelessWidget {
           children: [
             Text(
               l10n.featured_halls,
-              style: AppTextStyles.tajawal(
-                fontSize: 22,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: AppColors.onSurface,
               ),
@@ -43,10 +42,9 @@ class FeaturedVenuesHeader extends StatelessWidget {
             const SizedBox(width: 4),
             Text(
               l10n.see_all,
-              style: AppTextStyles.tajawal(
-                fontSize: 12,
-                color: AppColors.outline,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.labelSmall?.copyWith(color: AppColors.outline),
             ),
           ],
         ),

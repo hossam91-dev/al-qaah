@@ -43,10 +43,9 @@ class BrowseSearchHeader extends StatelessWidget {
             onChanged: onChanged,
             decoration: InputDecoration(
               hintText: l10n.search_halls_hint,
-              hintStyle: AppTextStyles.tajawal(
-                color: AppColors.outline,
-                fontSize: 14,
-              ),
+              hintStyle: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: AppColors.outline),
               prefixIcon: const Icon(Icons.search, color: AppColors.primary),
               border: InputBorder.none,
               enabledBorder: InputBorder.none,
@@ -103,15 +102,15 @@ class BrowseSearchHeader extends StatelessWidget {
                         const SizedBox(width: 8),
                         Text(
                           filters[index]['label'] as String,
-                          style: AppTextStyles.tajawal(
-                            fontSize: 14,
-                            fontWeight: isActive
-                                ? FontWeight.bold
-                                : FontWeight.normal,
-                            color: isActive
-                                ? Colors.white
-                                : AppColors.onSurface,
-                          ),
+                          style: Theme.of(context).textTheme.titleSmall
+                              ?.copyWith(
+                                fontWeight: isActive
+                                    ? FontWeight.bold
+                                    : FontWeight.normal,
+                                color: isActive
+                                    ? Colors.white
+                                    : AppColors.onSurface,
+                              ),
                         ),
                       ],
                     ),

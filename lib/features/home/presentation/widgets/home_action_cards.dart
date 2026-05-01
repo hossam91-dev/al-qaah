@@ -1,180 +1,116 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
-import '../../../../l10n/app_localizations.dart';
 
 class HomeActionCards extends StatelessWidget {
   const HomeActionCards({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: Column(
-        children: [
-          _buildBrowseHallsCard(context, l10n),
-          const SizedBox(height: 16),
-          _buildWeChooseCard(context, l10n),
-        ],
-      ),
+    return Column(
+      children: [
+        _ActionCard(
+          title: 'تصفح القاعات',
+          subtitle: 'استكشف تشكيلتنا المختارة من أفخم دور المناسبات',
+          buttonText: 'استكشف الآن',
+          icon: Icons.grid_view_rounded,
+          onTap: () {},
+          gradient: const LinearGradient(
+            colors: [Color(0xFF250548), Color(0xFF3B1F5E)],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
+        ),
+        const SizedBox(height: 16),
+        _ActionCard(
+          title: 'احنا نختارلك',
+          subtitle:
+              'دعي منسقينا المحترفين يجدون لك القاعة المثالية بناءً على ذوقك وميزانيتك',
+          buttonText: 'ابدئي التجربة الذكية',
+          icon: Icons.auto_awesome_rounded,
+          onTap: () {},
+          color: const Color(0xFFFAF8FE),
+          borderColor: const Color(0xFFE9E7ED),
+          titleColor: AppColors.primary,
+          iconColor: AppColors.primary,
+        ),
+      ],
     );
   }
+}
 
-  Widget _buildBrowseHallsCard(BuildContext context, AppLocalizations l10n) {
-    return Container(
-      width: double.infinity,
-      height: 220,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        image: const DecorationImage(
-          // Placeholder network image since we don't have a specific asset yet
-          image: NetworkImage(
-            'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2098&auto=format&fit=crop',
-          ),
-          fit: BoxFit.cover,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.primary.withValues(alpha: 0.15),
-            blurRadius: 24,
-            offset: const Offset(0, 12),
-          ),
-        ],
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
-          gradient: LinearGradient(
-            colors: [
-              Colors.black.withValues(alpha: 0.2),
-              AppColors.primary.withValues(alpha: 0.8),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-          ),
-        ),
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              l10n.browse_halls,
-              style: AppTextStyles.tajawal(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              l10n.browse_halls_desc,
-              textAlign: TextAlign.center,
-              style: AppTextStyles.tajawal(
-                fontSize: 14,
-                color: Colors.white.withValues(alpha: 0.9),
-                height: 1.5,
-              ),
-            ),
-            const SizedBox(height: 24),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    l10n.explore_now,
-                    style: AppTextStyles.tajawal(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primary,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  const Icon(
-                    Icons
-                        .arrow_back_rounded, // Automatically flips in RTL if textDirection aware, but arrow_back in RTL points left, which is forward in RTL.
-                    color: AppColors.primary,
-                    size: 18,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+class _ActionCard extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final String buttonText;
+  final IconData icon;
+  final VoidCallback onTap;
+  final Gradient? gradient;
+  final Color? color;
+  final Color? borderColor;
+  final Color titleColor;
+  final Color iconColor;
 
-  Widget _buildWeChooseCard(BuildContext context, AppLocalizations l10n) {
+  const _ActionCard({
+    required this.title,
+    required this.subtitle,
+    required this.buttonText,
+    required this.icon,
+    required this.onTap,
+    this.gradient,
+    this.color,
+    this.borderColor,
+    this.titleColor = Colors.white,
+    this.iconColor = Colors.white,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFFF0EAFC), // Light lavender as per design
+        color: color,
+        gradient: gradient,
         borderRadius: BorderRadius.circular(24),
+        border: borderColor != null ? Border.all(color: borderColor!) : null,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Align(
-            alignment:
-                AlignmentDirectional.topStart, // Fix: start in RTL is Right
-            child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: const Icon(
-                Icons.auto_awesome_rounded,
-                color: Colors.white,
-                size: 24,
-              ),
-            ),
-          ),
+          Icon(icon, color: iconColor.withValues(alpha: 0.8), size: 32),
           const SizedBox(height: 16),
           Text(
-            l10n.we_choose_for_you,
-            style: AppTextStyles.tajawal(
-              fontSize: 22,
+            title,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
-              color: AppColors.onSurface,
+              color: titleColor,
             ),
           ),
           const SizedBox(height: 8),
           Text(
-            l10n.we_choose_desc,
-            style: AppTextStyles.tajawal(
-              fontSize: 14,
-              color: AppColors.onSurfaceVariant,
+            subtitle,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: titleColor.withValues(alpha: 0.7),
               height: 1.5,
             ),
           ),
-          const SizedBox(height: 24),
-          Row(
-            children: [
-              Text(
-                l10n.start_smart_experience,
-                style: AppTextStyles.tajawal(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.primary,
+          const SizedBox(height: 20),
+          InkWell(
+            onTap: onTap,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  buttonText,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: titleColor,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 4),
-              const Icon(
-                Icons
-                    .arrow_back_ios_new_rounded, // arrow_back_ios_new points left.
-                color: AppColors.primary,
-                size: 14,
-              ),
-            ],
+                const SizedBox(width: 8),
+                Icon(Icons.arrow_forward_rounded, color: titleColor, size: 16),
+              ],
+            ),
           ),
         ],
       ),

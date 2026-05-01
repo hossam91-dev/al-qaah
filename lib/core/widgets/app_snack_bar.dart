@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
-import '../theme/app_text_styles.dart';
 
 enum SnackBarType { success, error, warning }
 
@@ -44,10 +43,9 @@ class AppSnackBar {
             Expanded(
               child: Text(
                 message,
-                style: AppTextStyles.tajawal(
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
-                  fontSize: 14,
                 ),
               ),
             ),

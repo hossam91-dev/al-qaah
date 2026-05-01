@@ -1,7 +1,6 @@
 import 'package:al_qaah/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/theme/app_colors.dart';
-import '../../../../../core/theme/app_text_styles.dart';
 
 class RegisterHeader extends StatelessWidget {
   const RegisterHeader({super.key});
@@ -14,8 +13,7 @@ class RegisterHeader extends StatelessWidget {
       children: [
         Text(
           l10n.register_title,
-          style: AppTextStyles.tajawal(
-            fontSize: 28,
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: AppColors.onSurface,
           ),
@@ -24,10 +22,9 @@ class RegisterHeader extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           l10n.register_subtitle,
-          style: AppTextStyles.tajawal(
-            fontSize: 16,
-            color: AppColors.onSurfaceVariant,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(color: AppColors.onSurfaceVariant),
           textAlign: TextAlign.right,
         ),
       ],

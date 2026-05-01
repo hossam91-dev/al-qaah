@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 
 class ProfileMenuSection extends StatelessWidget {
   final String title;
@@ -21,10 +20,9 @@ class ProfileMenuSection extends StatelessWidget {
           padding: const EdgeInsetsDirectional.only(start: 8, bottom: 8),
           child: Text(
             title,
-            style: AppTextStyles.tajawal(
-              fontSize: 14,
-              color: AppColors.outline,
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.labelLarge?.copyWith(color: AppColors.outline),
           ),
         ),
         Container(

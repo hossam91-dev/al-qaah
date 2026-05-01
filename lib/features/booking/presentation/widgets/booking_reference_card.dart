@@ -37,15 +37,13 @@ class BookingReferenceCard extends StatelessWidget {
             children: [
               Text(
                 l10n.reference_number,
-                style: AppTextStyles.tajawal(
-                  fontSize: 12,
-                  color: AppColors.outline,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.labelMedium?.copyWith(color: AppColors.outline),
               ),
               Text(
                 referenceNumber,
-                style: AppTextStyles.tajawal(
-                  fontSize: 18,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: AppColors.onSurface,
                 ),

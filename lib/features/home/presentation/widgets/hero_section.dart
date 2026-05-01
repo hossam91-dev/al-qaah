@@ -14,8 +14,7 @@ class HeroSection extends StatelessWidget {
       children: [
         Text(
           l10n.hero_title,
-          style: AppTextStyles.tajawal(
-            fontSize: 28,
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: AppColors.primary,
             height: 1.2,
@@ -24,8 +23,7 @@ class HeroSection extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           l10n.hero_subtitle,
-          style: AppTextStyles.tajawal(
-            fontSize: 14,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
             color: AppColors.outline,
             height: 1.5,
           ),

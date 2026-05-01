@@ -170,5 +170,11 @@
   "validator_phone_required": "يرجى إدخال رقم الهاتف",
   "validator_phone_invalid": "يرجى إدخال رقم هاتف مصري صحيح",
   "validator_otp_required": "يرجى إدخال رمز التحقق",
-  "validator_otp_invalid": "رمز التحقق يجب أن يكون 6 أرقام"
+  "validator_otp_invalid": "رمز التحقق يجب أن يكون 6 أرقام",
+  "empty_state_title": "لا توجد نتائج",
+  "empty_state_desc": "عذراً، لم نجد أي قاعات تطابق بحثك حالياً. جرب تغيير الفلاتر أو البحث بكلمات أخرى.",
+  "empty_state_button": "البحث من جديد",
+  "no_internet_title": "لا يوجد اتصال بالإنترنت",
+  "no_internet_desc": "يبدو أنك غير متصل بالشبكة. يرجى التحقق من اتصالك بالإنترنت للمتابعة.",
+  "no_internet_button": "إعادة المحاولة"
 }

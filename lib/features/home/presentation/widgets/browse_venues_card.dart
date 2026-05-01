@@ -1,5 +1,4 @@
 import 'package:al_qaah/core/theme/app_colors.dart';
-import 'package:al_qaah/core/theme/app_text_styles.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -40,8 +39,7 @@ class BrowseVenuesCard extends StatelessWidget {
           children: [
             Text(
               l10n.browse_halls,
-              style: AppTextStyles.tajawal(
-                fontSize: 28,
+              style: Theme.of(context).textTheme.displaySmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
@@ -50,10 +48,8 @@ class BrowseVenuesCard extends StatelessWidget {
             Text(
               l10n.browse_halls_desc,
               textAlign: TextAlign.center,
-              style: AppTextStyles.tajawal(
-                fontSize: 12,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Colors.white.withValues(alpha: 0.8),
-                height: 1.4,
               ),
             ),
             const SizedBox(height: 24),
@@ -68,8 +64,7 @@ class BrowseVenuesCard extends StatelessWidget {
                 children: [
                   Text(
                     l10n.explore_now,
-                    style: AppTextStyles.tajawal(
-                      fontSize: 14,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: AppColors.primary,
                     ),

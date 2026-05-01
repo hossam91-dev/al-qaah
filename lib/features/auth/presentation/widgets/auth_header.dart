@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 
 class AuthHeader extends StatelessWidget {
   final String title;
@@ -15,8 +14,7 @@ class AuthHeader extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppTextStyles.tajawal(
-            fontSize: 28,
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: AppColors.onSurface,
           ),
@@ -25,10 +23,9 @@ class AuthHeader extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           subtitle,
-          style: AppTextStyles.tajawal(
-            fontSize: 16,
-            color: AppColors.onSurfaceVariant,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(color: AppColors.onSurfaceVariant),
           textAlign: TextAlign.right,
         ),
       ],

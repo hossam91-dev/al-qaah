@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../widgets/browse_search_header.dart';
 import '../widgets/hall_grid_card.dart';
@@ -77,15 +76,13 @@ class _BrowseScreenState extends State<BrowseScreen> {
                   children: [
                     Text(
                       l10n.welcome_user,
-                      style: AppTextStyles.tajawal(
-                        fontSize: 12,
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: AppColors.outline,
                       ),
                     ),
                     Text(
                       'نور محمد',
-                      style: AppTextStyles.tajawal(
-                        fontSize: 16,
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: AppColors.onSurface,
                       ),
@@ -119,26 +116,23 @@ class _BrowseScreenState extends State<BrowseScreen> {
               children: [
                 Text(
                   l10n.search_results,
-                  style: AppTextStyles.tajawal(
-                    fontSize: 12,
-                    color: AppColors.outline,
-                  ),
+                  style: Theme.of(
+                    context,
+                  ).textTheme.labelSmall?.copyWith(color: AppColors.outline),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       l10n.halls_elite,
-                      style: AppTextStyles.tajawal(
-                        fontSize: 22,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: AppColors.onSurface,
                       ),
                     ),
                     Text(
                       l10n.halls_available(_halls.length),
-                      style: AppTextStyles.tajawal(
-                        fontSize: 12,
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: AppColors.outline,
                       ),
                     ),

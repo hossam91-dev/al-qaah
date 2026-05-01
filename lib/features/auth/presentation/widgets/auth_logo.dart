@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_text_styles.dart';
 
 class AuthLogo extends StatelessWidget {
   const AuthLogo({super.key});
@@ -13,9 +13,7 @@ class AuthLogo extends StatelessWidget {
           const SizedBox(height: 10),
           Text(
             'LAFAF',
-            style: GoogleFonts.notoSerif(
-              fontSize: 42,
-              fontWeight: FontWeight.bold,
+            style: Theme.of(context).textTheme.displayMedium?.copyWith(
               color: AppColors.primary,
               letterSpacing: 4.0,
             ),

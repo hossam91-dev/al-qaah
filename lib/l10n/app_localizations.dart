@@ -873,6 +873,42 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'رمز التحقق يجب أن يكون 6 أرقام'**
   String get validator_otp_invalid;
+
+  /// No description provided for @empty_state_title.
+  ///
+  /// In ar, this message translates to:
+  /// **'لا توجد نتائج'**
+  String get empty_state_title;
+
+  /// No description provided for @empty_state_desc.
+  ///
+  /// In ar, this message translates to:
+  /// **'عذراً، لم نجد أي قاعات تطابق بحثك حالياً. جرب تغيير الفلاتر أو البحث بكلمات أخرى.'**
+  String get empty_state_desc;
+
+  /// No description provided for @empty_state_button.
+  ///
+  /// In ar, this message translates to:
+  /// **'البحث من جديد'**
+  String get empty_state_button;
+
+  /// No description provided for @no_internet_title.
+  ///
+  /// In ar, this message translates to:
+  /// **'لا يوجد اتصال بالإنترنت'**
+  String get no_internet_title;
+
+  /// No description provided for @no_internet_desc.
+  ///
+  /// In ar, this message translates to:
+  /// **'يبدو أنك غير متصل بالشبكة. يرجى التحقق من اتصالك بالإنترنت للمتابعة.'**
+  String get no_internet_desc;
+
+  /// No description provided for @no_internet_button.
+  ///
+  /// In ar, this message translates to:
+  /// **'إعادة المحاولة'**
+  String get no_internet_button;
 }
 
 class _AppLocalizationsDelegate
