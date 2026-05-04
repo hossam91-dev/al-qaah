@@ -1,6 +1,7 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class BookingCancellationPolicy extends StatelessWidget {
@@ -10,7 +11,7 @@ class BookingCancellationPolicy extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(context.wp(4)),
       decoration: BoxDecoration(
         color: AppColors.primary.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(16),
@@ -18,20 +19,20 @@ class BookingCancellationPolicy extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(context.wp(2)),
             decoration: BoxDecoration(
               color: AppColors.primary.withValues(alpha: 0.1),
               shape: BoxShape.circle,
             ),
-            child: const Icon(
+            child: Icon(
               Icons.info_outline_rounded,
-              size: 20,
+              size: context.sp(5).clamp(18.0, 24.0),
               color: AppColors.primary,
             ),
           ),
-          const SizedBox(width: 16),
+          SizedBox(width: context.wp(4)),
           Expanded(
-            child: Text(
+            child: ResponsiveText(
               l10n.cancellation_policy_label(
                 l10n.cancellation_policy_full_text,
               ),

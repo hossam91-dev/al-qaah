@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../core/utils/validation_utils.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_text_field.dart';
@@ -38,7 +39,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             prefixIcon: Icons.email_outlined,
             validator: (value) => ValidationUtils.validateEmail(context, value),
           ),
-          const SizedBox(height: 48),
+          SizedBox(height: context.hp(6).clamp(32.0, 64.0)),
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
               final isLoading = state.maybeWhen(

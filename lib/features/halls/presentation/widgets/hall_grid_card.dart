@@ -1,7 +1,8 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 
 class HallGridCard extends StatelessWidget {
   final String name;
@@ -30,7 +31,7 @@ class HallGridCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(context.sp(4).clamp(12.0, 24.0)),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
@@ -49,14 +50,14 @@ class HallGridCard extends StatelessWidget {
             fit: BoxFit.cover,
             width: double.infinity,
             placeholder: (context, url) => Container(
-              height: 150, // Default height for placeholder
+              height: context.hp(20), // Responsive height for placeholder
               color: AppColors.surfaceContainerHigh,
               child: const Center(
                 child: CircularProgressIndicator(strokeWidth: 2),
               ),
             ),
             errorWidget: (context, url, error) => Container(
-              height: 150,
+              height: context.hp(20),
               color: AppColors.surfaceContainerHigh,
               child: const Icon(Icons.error),
             ),
@@ -69,12 +70,12 @@ class HallGridCard extends StatelessWidget {
                 ),
                 // Favorite Button
                 Positioned(
-                  top: 8,
-                  left: 8,
+                  top: context.wp(2),
+                  left: context.wp(2),
                   child: GestureDetector(
                     onTap: onFavoriteToggle,
                     child: Container(
-                      padding: const EdgeInsets.all(6),
+                      padding: EdgeInsets.all(context.wp(1.5)),
                       decoration: BoxDecoration(
                         color: AppColors.surfaceContainerLowest.withValues(
                           alpha: 0.8,
@@ -83,7 +84,7 @@ class HallGridCard extends StatelessWidget {
                       ),
                       child: Icon(
                         isFavorite ? Icons.favorite : Icons.favorite_border,
-                        size: 18,
+                        size: context.sp(4.5).clamp(16.0, 24.0),
                         color: isFavorite ? AppColors.error : AppColors.outline,
                       ),
                     ),
@@ -95,9 +96,9 @@ class HallGridCard extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 8,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: context.wp(2),
+                      vertical: context.hp(1),
                     ),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
@@ -109,7 +110,7 @@ class HallGridCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    child: Text(
+                    child: ResponsiveText(
                       region,
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: Colors.white,
@@ -123,11 +124,11 @@ class HallGridCard extends StatelessWidget {
           ),
           // Info Section
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(context.wp(2.5)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                ResponsiveText(
                   name,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -136,17 +137,17 @@ class HallGridCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: context.hp(0.5)),
                 // Capacity
                 Row(
                   children: [
-                    const Icon(
+                    Icon(
                       Icons.people_outline_rounded,
-                      size: 14,
+                      size: context.sp(3.5).clamp(12.0, 16.0),
                       color: AppColors.outline,
                     ),
-                    const SizedBox(width: 4),
-                    Text(
+                    SizedBox(width: context.wp(1)),
+                    ResponsiveText(
                       'حتى $capacity شخص',
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         color: AppColors.outline,
@@ -154,12 +155,12 @@ class HallGridCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: context.hp(1)),
                 // Price and Rating
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    ResponsiveText(
                       '${price.toStringAsFixed(0)} ج.م',
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         fontWeight: FontWeight.bold,
@@ -168,7 +169,7 @@ class HallGridCard extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text(
+                        ResponsiveText(
                           rating.toString(),
                           style: Theme.of(context).textTheme.labelMedium
                               ?.copyWith(
@@ -178,10 +179,10 @@ class HallGridCard extends StatelessWidget {
                                 ), // Gold/Amber standard
                               ),
                         ),
-                        const Icon(
+                        Icon(
                           Icons.star_rounded,
-                          size: 16,
-                          color: Color(0xFFFFC107),
+                          size: context.sp(4).clamp(14.0, 18.0),
+                          color: const Color(0xFFFFC107),
                         ),
                       ],
                     ),

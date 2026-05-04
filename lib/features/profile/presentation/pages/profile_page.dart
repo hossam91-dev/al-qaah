@@ -1,3 +1,5 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
@@ -25,16 +27,31 @@ class ProfilePage extends StatelessWidget {
 
           // Stats Section
           Transform.translate(
-            offset: const Offset(0, -40),
+            offset: Offset(0, -context.hp(4)),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: context.wp(5)),
               child: Row(
                 children: [
-                  ProfileStatsCard(label: l10n.bookings_count, value: '4'),
-                  const SizedBox(width: 12),
-                  ProfileStatsCard(label: l10n.saved_halls_count, value: '12'),
-                  const SizedBox(width: 12),
-                  ProfileStatsCard(label: l10n.reviews_count, value: '8'),
+                  Expanded(
+                    child: ProfileStatsCard(
+                      label: l10n.bookings_count,
+                      value: '4',
+                    ),
+                  ),
+                  SizedBox(width: context.wp(3)),
+                  Expanded(
+                    child: ProfileStatsCard(
+                      label: l10n.saved_halls_count,
+                      value: '12',
+                    ),
+                  ),
+                  SizedBox(width: context.wp(3)),
+                  Expanded(
+                    child: ProfileStatsCard(
+                      label: l10n.reviews_count,
+                      value: '8',
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -42,7 +59,12 @@ class ProfilePage extends StatelessWidget {
 
           // Menu Sections
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
+            padding: EdgeInsets.fromLTRB(
+              context.wp(5),
+              0,
+              context.wp(5),
+              context.hp(12),
+            ),
             child: Column(
               children: [
                 // Account Section
@@ -66,7 +88,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: context.hp(3)),
 
                 // My Bookings Section
                 ProfileMenuSection(
@@ -89,7 +111,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: context.hp(3)),
 
                 // Support Section
                 ProfileMenuSection(
@@ -112,13 +134,16 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: context.hp(5)),
 
                 // Logout Button
                 OutlinedButton.icon(
                   onPressed: () {},
-                  icon: const Icon(Icons.logout_rounded, size: 20),
-                  label: Text(
+                  icon: Icon(
+                    Icons.logout_rounded,
+                    size: context.sp(5).clamp(18.0, 24.0),
+                  ),
+                  label: ResponsiveText(
                     l10n.logout,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
@@ -126,9 +151,9 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 40,
-                      vertical: 12,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: context.wp(10),
+                      vertical: context.hp(1.5),
                     ),
                     side: const BorderSide(color: AppColors.primary),
                     shape: RoundedRectangleBorder(

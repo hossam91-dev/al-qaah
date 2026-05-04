@@ -171,6 +171,25 @@
   "validator_phone_invalid": "يرجى إدخال رقم هاتف مصري صحيح",
   "validator_otp_required": "يرجى إدخال رمز التحقق",
   "validator_otp_invalid": "رمز التحقق يجب أن يكون 6 أرقام",
+  "hall_details_title": "تفاصيل القاعة",
+  "about_hall": "عن القاعة",
+  "hall_amenities": "المميزات والخدمات",
+  "location_on_map": "الموقع",
+  "book_now_cta": "احجز دلوقتي",
+  "total_estimated": "الإجمالي المقدر",
+  "hall_capacity_label": "السعة الاستيعابية",
+  "starts_from": "يبدأ من",
+  "reviews_count_label": "({count}) تقييم",
+  "@reviews_count_label": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "see_all_dates": "عرض الكل",
+  "available_dates_label": "المواعيد المتاحة",
+  "hall_location_label": "الموقع",
   "empty_state_title": "لا توجد نتائج",
   "empty_state_desc": "عذراً، لم نجد أي قاعات تطابق بحثك حالياً. جرب تغيير الفلاتر أو البحث بكلمات أخرى.",
   "empty_state_button": "البحث من جديد",

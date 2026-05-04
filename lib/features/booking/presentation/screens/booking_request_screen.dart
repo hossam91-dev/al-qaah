@@ -1,3 +1,5 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -19,17 +21,22 @@ class BookingRequestScreen extends StatelessWidget {
         children: [
           // Header (Welcome/Context)
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 40, 20, 16),
+            padding: EdgeInsets.fromLTRB(
+              context.wp(5),
+              context.hp(5),
+              context.wp(5),
+              context.hp(2),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                ResponsiveText(
                   l10n.booking_details_royal,
                   style: Theme.of(
                     context,
                   ).textTheme.labelMedium?.copyWith(color: AppColors.outline),
                 ),
-                Text(
+                ResponsiveText(
                   l10n.booking_status_tracking,
                   style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                     fontWeight: FontWeight.bold,
@@ -43,19 +50,19 @@ class BookingRequestScreen extends StatelessWidget {
 
           // Main Content
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: context.wp(5)),
             child: Column(
               children: [
                 const BookingStatusTracker(currentStatus: 1),
-                const SizedBox(height: 24),
+                SizedBox(height: context.hp(3)),
                 const BookingHallDetailsCard(),
-                const SizedBox(height: 24),
+                SizedBox(height: context.hp(3)),
                 const BookingActionsCard(totalPrice: 85000),
-                const SizedBox(height: 24),
+                SizedBox(height: context.hp(3)),
                 const BookingReferenceCard(referenceNumber: 'LF-88421#'),
-                const SizedBox(height: 24),
+                SizedBox(height: context.hp(3)),
                 const BookingCancellationPolicy(),
-                const SizedBox(height: 100), // Space for Bottom Navigation
+                SizedBox(height: context.hp(12)), // Space for Bottom Navigation
               ],
             ),
           ),

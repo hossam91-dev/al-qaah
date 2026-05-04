@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
 import '../../../../../core/theme/app_colors.dart';
+import '../../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../../core/utils/validation_utils.dart';
 import '../../../../../core/widgets/app_button.dart';
 import '../../../../../core/widgets/app_text_field.dart';
@@ -52,7 +53,7 @@ class _LoginFormState extends State<LoginForm> {
             prefixIcon: Icons.email_outlined,
             validator: (value) => ValidationUtils.validateEmail(context, value),
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: context.hp(3).clamp(16.0, 32.0)),
           AppTextField(
             label: l10n.password,
             hintText: l10n.password_hint,
@@ -67,7 +68,7 @@ class _LoginFormState extends State<LoginForm> {
                     ? Icons.visibility_off_outlined
                     : Icons.visibility_outlined,
                 color: AppColors.outline,
-                size: 20,
+                size: context.sp(5).clamp(18.0, 24.0),
               ),
               onPressed: () {
                 setState(() {
@@ -76,7 +77,7 @@ class _LoginFormState extends State<LoginForm> {
               },
             ),
           ),
-          const SizedBox(height: 48),
+          SizedBox(height: context.hp(6).clamp(32.0, 64.0)),
           BlocBuilder<AuthCubit, AuthState>(
             builder: (context, state) {
               final isLoading = state.maybeWhen(

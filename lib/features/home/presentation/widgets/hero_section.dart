@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
+import '../../../../core/utils/responsive_utils/responsive_text.dart';
+import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class HeroSection extends StatelessWidget {
@@ -12,7 +13,7 @@ class HeroSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        ResponsiveText(
           l10n.hero_title,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold,
@@ -20,8 +21,8 @@ class HeroSection extends StatelessWidget {
             height: 1.2,
           ),
         ),
-        const SizedBox(height: 8),
-        Text(
+        SizedBox(height: context.hp(1)),
+        ResponsiveText(
           l10n.hero_subtitle,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
             color: AppColors.outline,

@@ -4,6 +4,8 @@ import 'package:al_qaah/features/auth/presentation/pages/otp_verification_page.d
 import 'package:al_qaah/features/auth/presentation/pages/register_page.dart';
 import 'package:al_qaah/features/auth/presentation/pages/reset_password_page.dart';
 import 'package:al_qaah/features/design_system/presentation/pages/design_system_page.dart';
+import 'package:al_qaah/features/halls/presentation/screens/hall_details_screen.dart';
+import 'package:al_qaah/features/home/domain/entities/hall_entity.dart';
 import 'package:al_qaah/features/main_layout/presentation/pages/main_layout_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' hide AuthState;
@@ -54,6 +56,14 @@ class AppRouter {
         path: AppRoutes.home,
         name: 'home',
         builder: (context, state) => const MainLayoutPage(),
+      ),
+      GoRoute(
+        path: AppRoutes.hallDetails,
+        name: 'hallDetails',
+        builder: (context, state) {
+          final hall = state.extra as HallEntity;
+          return HallDetailsScreen(hall: hall);
+        },
       ),
     ],
   );

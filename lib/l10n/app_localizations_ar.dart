@@ -427,6 +427,44 @@ class AppLocalizationsAr extends AppLocalizations {
   String get validator_otp_invalid => 'رمز التحقق يجب أن يكون 6 أرقام';
 
   @override
+  String get hall_details_title => 'تفاصيل القاعة';
+
+  @override
+  String get about_hall => 'عن القاعة';
+
+  @override
+  String get hall_amenities => 'المميزات والخدمات';
+
+  @override
+  String get location_on_map => 'الموقع';
+
+  @override
+  String get book_now_cta => 'احجز دلوقتي';
+
+  @override
+  String get total_estimated => 'الإجمالي المقدر';
+
+  @override
+  String get hall_capacity_label => 'السعة الاستيعابية';
+
+  @override
+  String get starts_from => 'يبدأ من';
+
+  @override
+  String reviews_count_label(int count) {
+    return '($count) تقييم';
+  }
+
+  @override
+  String get see_all_dates => 'عرض الكل';
+
+  @override
+  String get available_dates_label => 'المواعيد المتاحة';
+
+  @override
+  String get hall_location_label => 'الموقع';
+
+  @override
   String get empty_state_title => 'لا توجد نتائج';
 
   @override

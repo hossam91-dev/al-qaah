@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
+import '../../../../core/utils/responsive_utils/responsive_text.dart';
+import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../bloc/home_cubit.dart';
 
@@ -15,9 +16,9 @@ class VenueCard extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.maybeWhen(
-          loading: () => const SizedBox(
-            height: 280,
-            child: Center(child: CircularProgressIndicator()),
+          loading: () => SizedBox(
+            height: context.hp(35),
+            child: const Center(child: CircularProgressIndicator()),
           ),
           loaded: (featured) {
             if (featured == null) return const SizedBox.shrink();
@@ -51,15 +52,15 @@ class VenueCard extends StatelessWidget {
                         child: coverImage != null
                             ? CachedNetworkImage(
                                 imageUrl: coverImage,
-                                height: 200,
+                                height: context.hp(22).clamp(160.0, 220.0),
                                 width: double.infinity,
                                 fit: BoxFit.cover,
                                 placeholder: (context, url) => Container(
-                                  height: 200,
+                                  height: context.hp(22).clamp(160.0, 220.0),
                                   color: AppColors.surfaceContainerHigh,
                                 ),
                                 errorWidget: (context, url, error) => Container(
-                                  height: 200,
+                                  height: context.hp(22).clamp(160.0, 220.0),
                                   color: AppColors.surfaceContainerHigh,
                                   child: const Icon(
                                     Icons.image_not_supported,
@@ -68,7 +69,7 @@ class VenueCard extends StatelessWidget {
                                 ),
                               )
                             : Container(
-                                height: 200,
+                                height: context.hp(22).clamp(160.0, 220.0),
                                 color: AppColors.surfaceContainerHigh,
                                 child: const Center(
                                   child: Icon(
@@ -98,8 +99,8 @@ class VenueCard extends StatelessWidget {
                                 size: 14,
                                 color: Color(0xFFFFC107),
                               ),
-                              const SizedBox(width: 4),
-                              Text(
+                              SizedBox(width: context.wp(1)),
+                              ResponsiveText(
                                 featured.avgRating?.toStringAsFixed(1) ?? '0.0',
                                 style: Theme.of(context).textTheme.labelSmall
                                     ?.copyWith(
@@ -114,17 +115,17 @@ class VenueCard extends StatelessWidget {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: EdgeInsets.all(context.wp(5).clamp(16.0, 24.0)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        ResponsiveText(
                           featured.area ?? '',
                           style: Theme.of(context).textTheme.labelSmall
                               ?.copyWith(color: AppColors.outline),
                         ),
-                        const SizedBox(height: 4),
-                        Text(
+                        SizedBox(height: context.hp(0.5)),
+                        ResponsiveText(
                           featured.name,
                           style: Theme.of(context).textTheme.titleMedium
                               ?.copyWith(
@@ -132,32 +133,32 @@ class VenueCard extends StatelessWidget {
                                 color: AppColors.primary,
                               ),
                         ),
-                        const SizedBox(height: 16),
+                        SizedBox(height: context.hp(2)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                Text(
-                                  l10n.capacity_person(featured.capacity ?? 0),
-                                  style: Theme.of(context).textTheme.labelSmall
-                                      ?.copyWith(color: AppColors.outline),
-                                ),
-                                const SizedBox(width: 4),
-                                const Icon(
-                                  Icons.people_outline_rounded,
-                                  size: 16,
-                                  color: AppColors.outline,
-                                ),
-                              ],
-                            ),
-                            Text(
+                            ResponsiveText(
                               '${featured.pricePerEvent?.toStringAsFixed(0) ?? '0'} ${l10n.currency_egp}',
                               style: Theme.of(context).textTheme.titleMedium
                                   ?.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: AppColors.primary,
                                   ),
+                            ),
+                            Row(
+                              children: [
+                                ResponsiveText(
+                                  l10n.capacity_person(featured.capacity ?? 0),
+                                  style: Theme.of(context).textTheme.labelSmall
+                                      ?.copyWith(color: AppColors.outline),
+                                ),
+                                SizedBox(width: context.wp(1)),
+                                Icon(
+                                  Icons.people_outline_rounded,
+                                  size: context.sp(4.5).clamp(16.0, 20.0),
+                                  color: AppColors.outline,
+                                ),
+                              ],
                             ),
                           ],
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
+import '../utils/responsive_utils/responsive_helper.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
@@ -35,9 +36,12 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = context.hp(6.5).clamp(48.0, 64.0);
+    final fontSize = context.sp(4).clamp(14.0, 18.0);
+
     if (isPrimary) {
       return Container(
-        height: 48,
+        height: height,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: AppColors.primaryGradient,
@@ -45,13 +49,12 @@ class AppButton extends StatelessWidget {
         ),
         child: ElevatedButton(
           onPressed: isLoading ? null : onPressed,
-
-          child: _buildContent(),
+          child: _buildContent(fontSize),
         ),
       );
     } else {
       return SizedBox(
-        height: 48,
+        height: height,
         width: double.infinity,
         child: OutlinedButton(
           onPressed: isLoading ? null : onPressed,
@@ -62,13 +65,13 @@ class AppButton extends StatelessWidget {
             ),
             foregroundColor: AppColors.primary,
           ),
-          child: _buildContent(),
+          child: _buildContent(fontSize),
         ),
       );
     }
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(double fontSize) {
     if (isLoading) {
       return const SizedBox(
         height: 20,
@@ -83,12 +86,16 @@ class AppButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        if (icon != null) ...[Icon(icon, size: 20), const SizedBox(width: 8)],
+        if (icon != null) ...[
+          Icon(icon, size: fontSize * 1.2),
+          const SizedBox(width: 8),
+        ],
         Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.bold,
             letterSpacing: 0.5,
+            fontSize: fontSize,
           ),
         ),
       ],

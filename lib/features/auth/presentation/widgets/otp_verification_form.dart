@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../core/utils/validation_utils.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -19,12 +20,15 @@ class OtpVerificationForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final pinSize = context.wp(12).clamp(48.0, 64.0);
+
     final defaultTheme = PinTheme(
-      width: 56,
-      height: 56,
+      width: pinSize,
+      height: pinSize,
       textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
         color: AppColors.onSurface,
         fontWeight: FontWeight.bold,
+        fontSize: context.sp(5).clamp(18.0, 24.0),
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -47,13 +51,13 @@ class OtpVerificationForm extends StatelessWidget {
             controller: controller,
             defaultPinTheme: defaultTheme,
             focusedPinTheme: focusedTheme,
-            separatorBuilder: (index) => const SizedBox(width: 8),
+            separatorBuilder: (index) => SizedBox(width: context.wp(2)),
             validator: (value) => ValidationUtils.validateOtp(context, value),
             onCompleted: (pin) =>
                 context.read<AuthCubit>().verifyOtp(email: email, token: pin),
           ),
         ),
-        const SizedBox(height: 32),
+        SizedBox(height: context.hp(4).clamp(24.0, 48.0)),
         TextButton(
           onPressed: () => context.read<AuthCubit>().sendResetCode(email),
           child: Text(
@@ -61,10 +65,11 @@ class OtpVerificationForm extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
               color: AppColors.primary,
               fontWeight: FontWeight.bold,
+              fontSize: context.sp(3.5).clamp(12.0, 16.0),
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: context.hp(2).clamp(8.0, 24.0)),
         BlocBuilder<AuthCubit, AuthState>(
           builder: (context, state) {
             final isLoading = state.maybeWhen(

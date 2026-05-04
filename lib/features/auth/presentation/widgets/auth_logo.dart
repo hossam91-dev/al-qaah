@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
+import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 
 class AuthLogo extends StatelessWidget {
   const AuthLogo({super.key});
@@ -10,19 +10,20 @@ class AuthLogo extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          const SizedBox(height: 10),
+          SizedBox(height: context.hp(1.5)),
           Text(
             'LAFAF',
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               color: AppColors.primary,
               letterSpacing: 4.0,
+              fontSize: context.sp(8).clamp(32.0, 48.0),
             ),
           ),
           Container(
             height: 2,
-            width: 40,
+            width: context.wp(10).clamp(30.0, 60.0),
             color: AppColors.primary,
-            margin: const EdgeInsets.only(top: 8),
+            margin: EdgeInsets.only(top: context.hp(1)),
           ),
         ],
       ),

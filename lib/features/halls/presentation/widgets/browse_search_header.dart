@@ -1,6 +1,6 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class BrowseSearchHeader extends StatelessWidget {
@@ -100,7 +100,7 @@ class BrowseSearchHeader extends StatelessWidget {
                           color: isActive ? Colors.white : AppColors.primary,
                         ),
                         const SizedBox(width: 8),
-                        Text(
+                        ResponsiveText(
                           filters[index]['label'] as String,
                           style: Theme.of(context).textTheme.titleSmall
                               ?.copyWith(

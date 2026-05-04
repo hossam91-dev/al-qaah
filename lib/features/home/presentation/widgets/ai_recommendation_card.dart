@@ -1,5 +1,6 @@
 import 'package:al_qaah/core/theme/app_colors.dart';
-import 'package:al_qaah/core/theme/app_text_styles.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -11,36 +12,36 @@ class AiRecommendationCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(context.wp(6).clamp(16.0, 32.0)),
       decoration: BoxDecoration(
         color: AppColors.primary.withValues(alpha: 0.05),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, // Align contents to right
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(context.wp(3).clamp(8.0, 16.0)),
             decoration: BoxDecoration(
               color: AppColors.primary,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.auto_awesome_rounded,
               color: Colors.white,
-              size: 24,
+              size: context.sp(6).clamp(20.0, 28.0),
             ),
           ),
-          const SizedBox(height: 16),
-          Text(
+          SizedBox(height: context.hp(2)),
+          ResponsiveText(
             l10n.we_choose_for_you,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: AppColors.onSurface,
             ),
           ),
-          const SizedBox(height: 8),
-          Text(
+          SizedBox(height: context.hp(1)),
+          ResponsiveText(
             l10n.we_choose_desc,
             textAlign: TextAlign.right,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
@@ -48,21 +49,21 @@ class AiRecommendationCard extends StatelessWidget {
               height: 1.5,
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: context.hp(2.5)),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(
+              ResponsiveText(
                 l10n.start_smart_experience,
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: AppColors.primary,
                 ),
               ),
-              const SizedBox(width: 8),
-              const Icon(
+              SizedBox(width: context.wp(2)),
+              Icon(
                 Icons.arrow_back_ios_new_rounded,
-                size: 14,
+                size: context.sp(3.5).clamp(12.0, 16.0),
                 color: AppColors.primary,
               ),
             ],
