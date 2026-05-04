@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/utils/responsive_utils/responsive_text.dart';
+import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 
 class AuthHeader extends StatelessWidget {
   final String title;
@@ -12,7 +14,7 @@ class AuthHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
+        ResponsiveText(
           title,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
             fontWeight: FontWeight.bold,
@@ -20,8 +22,8 @@ class AuthHeader extends StatelessWidget {
           ),
           textAlign: TextAlign.right,
         ),
-        const SizedBox(height: 8),
-        Text(
+        SizedBox(height: context.hp(1)),
+        ResponsiveText(
           subtitle,
           style: Theme.of(
             context,

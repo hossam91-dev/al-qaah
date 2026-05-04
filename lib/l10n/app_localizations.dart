@@ -874,6 +874,78 @@ abstract class AppLocalizations {
   /// **'رمز التحقق يجب أن يكون 6 أرقام'**
   String get validator_otp_invalid;
 
+  /// No description provided for @hall_details_title.
+  ///
+  /// In ar, this message translates to:
+  /// **'تفاصيل القاعة'**
+  String get hall_details_title;
+
+  /// No description provided for @about_hall.
+  ///
+  /// In ar, this message translates to:
+  /// **'عن القاعة'**
+  String get about_hall;
+
+  /// No description provided for @hall_amenities.
+  ///
+  /// In ar, this message translates to:
+  /// **'المميزات والخدمات'**
+  String get hall_amenities;
+
+  /// No description provided for @location_on_map.
+  ///
+  /// In ar, this message translates to:
+  /// **'الموقع'**
+  String get location_on_map;
+
+  /// No description provided for @book_now_cta.
+  ///
+  /// In ar, this message translates to:
+  /// **'احجز دلوقتي'**
+  String get book_now_cta;
+
+  /// No description provided for @total_estimated.
+  ///
+  /// In ar, this message translates to:
+  /// **'الإجمالي المقدر'**
+  String get total_estimated;
+
+  /// No description provided for @hall_capacity_label.
+  ///
+  /// In ar, this message translates to:
+  /// **'السعة الاستيعابية'**
+  String get hall_capacity_label;
+
+  /// No description provided for @starts_from.
+  ///
+  /// In ar, this message translates to:
+  /// **'يبدأ من'**
+  String get starts_from;
+
+  /// No description provided for @reviews_count_label.
+  ///
+  /// In ar, this message translates to:
+  /// **'({count}) تقييم'**
+  String reviews_count_label(int count);
+
+  /// No description provided for @see_all_dates.
+  ///
+  /// In ar, this message translates to:
+  /// **'عرض الكل'**
+  String get see_all_dates;
+
+  /// No description provided for @available_dates_label.
+  ///
+  /// In ar, this message translates to:
+  /// **'المواعيد المتاحة'**
+  String get available_dates_label;
+
+  /// No description provided for @hall_location_label.
+  ///
+  /// In ar, this message translates to:
+  /// **'الموقع'**
+  String get hall_location_label;
+
   /// No description provided for @empty_state_title.
   ///
   /// In ar, this message translates to:

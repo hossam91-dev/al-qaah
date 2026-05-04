@@ -1,3 +1,5 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 
@@ -17,8 +19,11 @@ class ProfileMenuSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsetsDirectional.only(start: 8, bottom: 8),
-          child: Text(
+          padding: EdgeInsetsDirectional.only(
+            start: context.wp(2),
+            bottom: context.hp(1),
+          ),
+          child: ResponsiveText(
             title,
             style: Theme.of(
               context,

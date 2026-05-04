@@ -1,6 +1,7 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class BookingReferenceCard extends StatelessWidget {
@@ -12,7 +13,10 @@ class BookingReferenceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.wp(6),
+        vertical: context.hp(2),
+      ),
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLowest,
         borderRadius: BorderRadius.circular(16),
@@ -27,21 +31,21 @@ class BookingReferenceCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(
+          Icon(
             Icons.qr_code_2_rounded,
-            size: 32,
+            size: context.sp(8).clamp(32.0, 48.0),
             color: AppColors.onSurface,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(
+              ResponsiveText(
                 l10n.reference_number,
                 style: Theme.of(
                   context,
                 ).textTheme.labelMedium?.copyWith(color: AppColors.outline),
               ),
-              Text(
+              ResponsiveText(
                 referenceNumber,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,

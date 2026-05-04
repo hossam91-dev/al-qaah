@@ -1,3 +1,4 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:al_qaah/features/home/presentation/widgets/ai_recommendation_card.dart';
 import 'package:al_qaah/features/home/presentation/widgets/browse_venues_card.dart';
 import 'package:al_qaah/features/home/presentation/widgets/featured_venues_header.dart';
@@ -18,22 +19,27 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<HomeCubit>()..getHighestRatedHall(),
       child: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(20, 40, 20, 100),
+        padding: EdgeInsets.fromLTRB(
+          context.wp(5).clamp(16.0, 24.0),
+          context.hp(5).clamp(24.0, 48.0),
+          context.wp(5).clamp(16.0, 24.0),
+          context.hp(12).clamp(80.0, 120.0),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const HomeAppBar(),
-            const SizedBox(height: 40),
+            SizedBox(height: context.hp(5).clamp(24.0, 48.0)),
             const HeroSection(),
-            const SizedBox(height: 40),
+            SizedBox(height: context.hp(5).clamp(24.0, 48.0)),
             const BrowseVenuesCard(),
-            const SizedBox(height: 20),
+            SizedBox(height: context.hp(3).clamp(16.0, 32.0)),
             const AiRecommendationCard(),
-            const SizedBox(height: 40),
+            SizedBox(height: context.hp(5).clamp(24.0, 48.0)),
             const FeaturedVenuesHeader(),
-            const SizedBox(height: 20),
+            SizedBox(height: context.hp(3).clamp(16.0, 32.0)),
             const VenueCard(),
-            const SizedBox(height: 40),
+            SizedBox(height: context.hp(5).clamp(24.0, 48.0)),
             const NewsletterSection(),
           ],
         ),

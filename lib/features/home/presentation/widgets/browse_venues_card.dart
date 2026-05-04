@@ -1,4 +1,6 @@
 import 'package:al_qaah/core/theme/app_colors.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +12,7 @@ class BrowseVenuesCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
-      height: 240,
+      height: context.hp(28).clamp(200.0, 280.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         image: const DecorationImage(
@@ -32,29 +34,32 @@ class BrowseVenuesCard extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        padding: const EdgeInsets.all(32),
+        padding: EdgeInsets.all(context.wp(6).clamp(16.0, 32.0)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            ResponsiveText(
               l10n.browse_halls,
               style: Theme.of(context).textTheme.displaySmall?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 8),
-            Text(
+            SizedBox(height: context.hp(1)),
+            ResponsiveText(
               l10n.browse_halls_desc,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Colors.white.withValues(alpha: 0.8),
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: context.hp(3).clamp(16.0, 32.0)),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              padding: EdgeInsets.symmetric(
+                horizontal: context.wp(8).clamp(24.0, 40.0),
+                vertical: context.hp(1.5).clamp(10.0, 16.0),
+              ),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
@@ -62,18 +67,18 @@ class BrowseVenuesCard extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  ResponsiveText(
                     l10n.explore_now,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: AppColors.primary,
                     ),
                   ),
-                  const SizedBox(width: 8),
-                  const Icon(
+                  SizedBox(width: context.wp(2)),
+                  Icon(
                     Icons.arrow_back_rounded,
                     color: AppColors.primary,
-                    size: 18,
+                    size: context.sp(4.5).clamp(16.0, 20.0),
                   ),
                 ],
               ),

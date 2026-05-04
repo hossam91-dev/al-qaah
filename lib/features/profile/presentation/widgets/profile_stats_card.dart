@@ -1,6 +1,7 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 
 class ProfileStatsCard extends StatelessWidget {
   final String label;
@@ -10,38 +11,36 @@ class ProfileStatsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        decoration: BoxDecoration(
-          color: AppColors.surfaceContainerLowest,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.05),
-              blurRadius: 15,
-              offset: const Offset(0, 5),
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: context.hp(2)),
+      decoration: BoxDecoration(
+        color: AppColors.surfaceContainerLowest,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 15,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          ResponsiveText(
+            value,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: AppColors.onSurface,
             ),
-          ],
-        ),
-        child: Column(
-          children: [
-            Text(
-              value,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.onSurface,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: Theme.of(
-                context,
-              ).textTheme.labelSmall?.copyWith(color: AppColors.outline),
-            ),
-          ],
-        ),
+          ),
+          SizedBox(height: context.hp(0.5)),
+          ResponsiveText(
+            label,
+            style: Theme.of(
+              context,
+            ).textTheme.labelSmall?.copyWith(color: AppColors.outline),
+          ),
+        ],
       ),
     );
   }

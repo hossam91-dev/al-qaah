@@ -1,7 +1,8 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_text_styles.dart';
 import '../../../../l10n/app_localizations.dart';
 
 class BookingHallDetailsCard extends StatelessWidget {
@@ -10,7 +11,7 @@ class BookingHallDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(context.wp(4)),
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLowest,
         borderRadius: BorderRadius.circular(24),
@@ -30,29 +31,29 @@ class BookingHallDetailsCard extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl:
                   'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2098&auto=format&fit=crop',
-              height: 180,
+              height: context.hp(22).clamp(160.0, 220.0),
               width: double.infinity,
               fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(height: 16),
-          Text(
+          SizedBox(height: context.hp(2)),
+          ResponsiveText(
             'قاعة الثريا الكبرى',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               color: AppColors.onSurface,
             ),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: context.hp(0.5)),
           Row(
             children: [
-              const Icon(
+              Icon(
                 Icons.location_on_rounded,
-                size: 16,
+                size: context.sp(4).clamp(14.0, 18.0),
                 color: AppColors.primary,
               ),
-              const SizedBox(width: 4),
-              Text(
+              SizedBox(width: context.wp(1)),
+              ResponsiveText(
                 'التجمع الخامس، القاهرة',
                 style: Theme.of(
                   context,
@@ -60,7 +61,7 @@ class BookingHallDetailsCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: context.hp(2)),
           Row(
             children: [
               _buildInfoChip(
@@ -68,7 +69,7 @@ class BookingHallDetailsCard extends StatelessWidget {
                 Icons.calendar_month_outlined,
                 '15 أكتوبر 2024',
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: context.wp(3)),
               _buildInfoChip(
                 context,
                 Icons.people_outline_rounded,
@@ -83,16 +84,24 @@ class BookingHallDetailsCard extends StatelessWidget {
 
   Widget _buildInfoChip(BuildContext context, IconData icon, String label) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: EdgeInsets.symmetric(
+        horizontal: context.wp(3),
+        vertical: context.hp(1),
+      ),
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLow,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 16, color: AppColors.outline),
-          const SizedBox(width: 8),
-          Text(
+          Icon(
+            icon,
+            size: context.sp(4).clamp(14.0, 18.0),
+            color: AppColors.outline,
+          ),
+          SizedBox(width: context.wp(2)),
+          ResponsiveText(
             label,
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
               color: AppColors.onSurfaceVariant,

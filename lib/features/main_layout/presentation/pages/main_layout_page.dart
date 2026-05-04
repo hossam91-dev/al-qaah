@@ -1,3 +1,5 @@
+import 'package:al_qaah/core/utils/responsive_utils/responsive_container.dart';
+import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:al_qaah/features/booking/presentation/screens/booking_request_screen.dart';
 import 'package:al_qaah/features/halls/presentation/screens/browse_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,15 +26,21 @@ class _MainLayoutPageState extends State<MainLayoutPage> {
 
   @override
   Widget build(BuildContext context) {
+    final borderRadius = context.sp(6).clamp(24.0, 32.0);
+
     return Scaffold(
       extendBody: true,
       body: IndexedStack(index: _currentIndex, children: _screens),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.fromLTRB(24, 0, 24, 20),
-        height: 64,
+      bottomNavigationBar: ResponsiveContainer(
+        heightPercent: 8,
+        minHeight: 64,
+        maxHeight: 80,
         decoration: BoxDecoration(
           color: AppColors.primaryContainer,
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(borderRadius),
+            topRight: Radius.circular(borderRadius),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.3),
@@ -44,10 +52,10 @@ class _MainLayoutPageState extends State<MainLayoutPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _buildNavItem(0, Icons.grid_view_rounded),
-            _buildNavItem(1, Icons.search_rounded),
-            _buildNavItem(2, Icons.calendar_today_rounded),
-            _buildNavItem(3, Icons.person_outline_rounded),
+            _buildNavItem(0, Icons.home_rounded),
+            _buildNavItem(1, Icons.explore_rounded),
+            _buildNavItem(2, Icons.event_note_rounded),
+            _buildNavItem(3, Icons.account_circle_rounded),
           ],
         ),
       ),
@@ -56,16 +64,19 @@ class _MainLayoutPageState extends State<MainLayoutPage> {
 
   Widget _buildNavItem(int index, IconData icon) {
     bool isSelected = _currentIndex == index;
+    final iconSize = context.sp(7).clamp(26.0, 32.0);
+    final padding = context.wp(3).clamp(8.0, 16.0);
+
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => setState(() => _currentIndex = index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeInOut,
-        padding: const EdgeInsets.all(12),
+        padding: EdgeInsets.all(padding),
         decoration: BoxDecoration(
           color: isSelected
-              ? Colors.white.withValues(alpha: 0.12)
+              ? Colors.white.withValues(alpha: 0.15)
               : Colors.transparent,
           shape: BoxShape.circle,
         ),
@@ -73,8 +84,8 @@ class _MainLayoutPageState extends State<MainLayoutPage> {
           icon,
           color: isSelected
               ? Colors.white
-              : Colors.white.withValues(alpha: 0.4),
-          size: 24,
+              : Colors.white.withValues(alpha: 0.5),
+          size: iconSize,
         ),
       ),
     );

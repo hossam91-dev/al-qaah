@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../core/router/app_routes.dart';
 import '../../../../../core/theme/app_colors.dart';
-import '../../../../../l10n/app_localizations.dart';
+import '../../../../../core/utils/responsive_utils/responsive_text.dart';
+import '../../../../../core/utils/responsive_utils/responsive_helper.dart';
+import '../../../../l10n/app_localizations.dart';
 
 class RegisterFooter extends StatelessWidget {
   const RegisterFooter({super.key});
@@ -17,7 +19,7 @@ class RegisterFooter extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () => context.push(AppRoutes.login),
-              child: Text(
+              child: ResponsiveText(
                 l10n.login_now,
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.bold,
@@ -25,7 +27,7 @@ class RegisterFooter extends StatelessWidget {
                 ),
               ),
             ),
-            Text(
+            ResponsiveText(
               l10n.already_have_account,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: AppColors.onSurfaceVariant,
@@ -33,8 +35,8 @@ class RegisterFooter extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 16),
-        Text(
+        SizedBox(height: context.hp(2)),
+        ResponsiveText(
           l10n.terms_and_conditions,
           textAlign: TextAlign.center,
           style: Theme.of(

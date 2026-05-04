@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/di/injection.dart';
 import '../../../../core/router/app_routes.dart';
+import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
 import '../bloc/auth_cubit.dart';
 import '../widgets/auth_header.dart';
@@ -36,23 +37,25 @@ class RegisterPage extends StatelessWidget {
         },
         child: Scaffold(
           body: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: context.wp(5).clamp(16.0, 32.0),
+            ),
             child: SafeArea(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 10),
+                  SizedBox(height: context.hp(2).clamp(10.0, 32.0)),
                   const AuthLogo(),
-                  const SizedBox(height: 40),
+                  SizedBox(height: context.hp(4).clamp(24.0, 48.0)),
                   AuthHeader(
                     title: AppLocalizations.of(context)!.register_title,
                     subtitle: AppLocalizations.of(context)!.register_subtitle,
                   ),
-                  const SizedBox(height: 48),
+                  SizedBox(height: context.hp(5).clamp(32.0, 64.0)),
                   const RegisterForm(),
-                  const SizedBox(height: 16),
+                  SizedBox(height: context.hp(2).clamp(12.0, 24.0)),
                   const RegisterFooter(),
-                  const SizedBox(height: 40),
+                  SizedBox(height: context.hp(5).clamp(24.0, 60.0)),
                 ],
               ),
             ),
