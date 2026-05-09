@@ -1,6 +1,7 @@
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import '../../../../core/constants/radius.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class HallDetailsHeader extends StatelessWidget {
@@ -72,7 +73,7 @@ class HallDetailsHeader extends StatelessWidget {
                     height: 4,
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.5),
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(AppRadius.r2),
                     ),
                   ),
                   const SizedBox(width: 4),
@@ -81,7 +82,7 @@ class HallDetailsHeader extends StatelessWidget {
                     height: 4,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(AppRadius.r2),
                     ),
                   ),
                   const SizedBox(width: 4),
@@ -90,7 +91,7 @@ class HallDetailsHeader extends StatelessWidget {
                     height: 4,
                     decoration: BoxDecoration(
                       color: Colors.white.withValues(alpha: 0.5),
-                      borderRadius: BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(AppRadius.r2),
                     ),
                   ),
                 ],

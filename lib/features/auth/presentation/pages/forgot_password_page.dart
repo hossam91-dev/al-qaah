@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/router/app_routes.dart';
-import '../../../../core/di/injection.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
@@ -17,17 +16,7 @@ class ForgotPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AuthCubit>(),
-      child: BlocListener<AuthCubit, AuthState>(
-        listener: (context, state) {
-          state.whenOrNull(
-            error: (message) => AppSnackBar.error(context, message),
-          );
-        },
-        child: const _ForgotPasswordView(),
-      ),
-    );
+    return const _ForgotPasswordView();
   }
 }
 
@@ -51,12 +40,15 @@ class _ForgotPasswordViewState extends State<_ForgotPasswordView> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) => state.whenOrNull(
-        codeSent: () => context.push(
-          AppRoutes.otpVerification,
-          extra: _emailController.text,
-        ),
-      ),
+      listener: (context, state) {
+        state.whenOrNull(
+          codeSent: () => context.push(
+            AppRoutes.otpVerification,
+            extra: _emailController.text,
+          ),
+          error: (message) => AppSnackBar.error(context, message),
+        );
+      },
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,

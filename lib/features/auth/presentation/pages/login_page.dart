@@ -2,7 +2,6 @@ import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../core/di/injection.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/responsive_utils/responsive_text.dart';
@@ -20,13 +19,11 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    return BlocProvider(
-      create: (context) => getIt<AuthCubit>(),
-      child: BlocListener<AuthCubit, AuthState>(
-        listener: (context, state) {
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (context, state) {
           state.whenOrNull(
             success: (user) {
-              AppSnackBar.success(context, 'مرحباً ${user.name}');
+              AppSnackBar.success(context, l10n.login_success_msg(user.name ?? ''));
               context.go(AppRoutes.home);
             },
             error: (message) => AppSnackBar.error(context, message),
@@ -67,7 +64,6 @@ class LoginPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

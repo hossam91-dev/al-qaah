@@ -1,5 +1,6 @@
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/radius.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -33,7 +34,7 @@ class BrowseSearchHeader extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
             color: AppColors.surfaceContainerLow,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppRadius.r12),
             border: Border.all(
               color: AppColors.outlineVariant.withValues(alpha: 0.5),
             ),
@@ -67,7 +68,7 @@ class BrowseSearchHeader extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.only(end: 8),
                 child: InkWell(
                   onTap: () => onFilterChanged(index),
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(AppRadius.r20),
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
                     padding: const EdgeInsets.symmetric(
@@ -76,7 +77,7 @@ class BrowseSearchHeader extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: isActive ? AppColors.primary : Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(AppRadius.r20),
                       border: Border.all(
                         color: isActive
                             ? AppColors.primary

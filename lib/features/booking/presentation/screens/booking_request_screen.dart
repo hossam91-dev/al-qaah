@@ -1,5 +1,7 @@
+import 'package:al_qaah/core/constants/padding.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
+import 'package:al_qaah/core/widgets/base_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -14,44 +16,16 @@ class BookingRequestScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header (Welcome/Context)
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-              context.wp(5),
-              context.hp(5),
-              context.wp(5),
-              context.hp(2),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ResponsiveText(
-                  l10n.booking_details_royal,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.labelMedium?.copyWith(color: AppColors.outline),
-                ),
-                ResponsiveText(
-                  l10n.booking_status_tracking,
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.onSurface,
-                    height: 1.2,
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          // Main Content
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: context.wp(5)),
-            child: Column(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: context.wp(AppPadding.baseHori),
+          vertical: context.hp(AppPadding.baseVert),),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BaseAppBar(),
+            Column(
               children: [
                 const BookingStatusTracker(currentStatus: 1),
                 SizedBox(height: context.hp(3)),
@@ -62,11 +36,11 @@ class BookingRequestScreen extends StatelessWidget {
                 const BookingReferenceCard(referenceNumber: 'LF-88421#'),
                 SizedBox(height: context.hp(3)),
                 const BookingCancellationPolicy(),
-                SizedBox(height: context.hp(12)), // Space for Bottom Navigation
+                SizedBox(height: context.hp(12)),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

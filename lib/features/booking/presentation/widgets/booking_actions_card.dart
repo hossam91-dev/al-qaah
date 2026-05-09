@@ -1,6 +1,7 @@
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/radius.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -16,7 +17,7 @@ class BookingActionsCard extends StatelessWidget {
       padding: EdgeInsets.all(context.wp(6)),
       decoration: BoxDecoration(
         color: AppColors.primary,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(AppRadius.r24),
         boxShadow: [
           BoxShadow(
             color: AppColors.primary.withValues(alpha: 0.3),
@@ -67,7 +68,7 @@ class BookingActionsCard extends StatelessWidget {
                 context.hp(7).clamp(48.0, 60.0),
               ),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(AppRadius.r16),
               ),
             ),
           ),
@@ -93,7 +94,7 @@ class BookingActionsCard extends StatelessWidget {
                 context.hp(7).clamp(48.0, 60.0),
               ),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(AppRadius.r16),
               ),
             ),
           ),

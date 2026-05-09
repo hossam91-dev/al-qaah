@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/font_size.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
@@ -10,97 +11,97 @@ class AppTextStyles {
     return const TextTheme(
       displayLarge: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 56,
+        fontSize: AppFontSize.displayLarge,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
         height: 1.2,
       ),
       displayMedium: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 45,
+        fontSize: AppFontSize.displayMedium,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
         height: 1.2,
       ),
       displaySmall: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 36,
+        fontSize: AppFontSize.displaySmall,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
         height: 1.2,
       ),
       headlineLarge: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 32,
+        fontSize: AppFontSize.headlineLarge,
         fontWeight: FontWeight.bold,
         color: AppColors.onSurface,
       ),
       headlineMedium: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 28,
+        fontSize: AppFontSize.headlineMedium,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
       headlineSmall: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 24,
+        fontSize: AppFontSize.headlineSmall,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
       titleLarge: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 22,
+        fontSize: AppFontSize.titleLarge,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
       titleMedium: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 18,
+        fontSize: AppFontSize.titleMedium,
         fontWeight: FontWeight.w600,
         color: AppColors.onSurface,
       ),
       titleSmall: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 14,
+        fontSize: AppFontSize.titleSmall,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurface,
       ),
       bodyLarge: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 16,
+        fontSize: AppFontSize.bodyLarge,
         fontWeight: FontWeight.normal,
         color: AppColors.onSurface,
         height: 1.5,
       ),
       bodyMedium: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 14,
+        fontSize: AppFontSize.bodyMedium,
         fontWeight: FontWeight.normal,
         color: AppColors.onSurfaceVariant,
         height: 1.5,
       ),
       bodySmall: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 12,
+        fontSize: AppFontSize.bodySmall,
         fontWeight: FontWeight.normal,
         color: AppColors.onSurfaceVariant,
         height: 1.5,
       ),
       labelLarge: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 14,
+        fontSize: AppFontSize.labelLarge,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurface,
       ),
       labelMedium: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 12,
+        fontSize: AppFontSize.labelMedium,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurfaceVariant,
       ),
       labelSmall: TextStyle(
         fontFamily: fontFamily,
-        fontSize: 11,
+        fontSize: AppFontSize.labelSmall,
         fontWeight: FontWeight.w500,
         color: AppColors.onSurfaceVariant,
       ),

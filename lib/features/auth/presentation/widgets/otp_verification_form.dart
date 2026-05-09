@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
+import '../../../../core/constants/font_size.dart';
+import '../../../../core/constants/radius.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../core/utils/validation_utils.dart';
@@ -28,10 +30,10 @@ class OtpVerificationForm extends StatelessWidget {
       textStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
         color: AppColors.onSurface,
         fontWeight: FontWeight.bold,
-        fontSize: context.sp(5).clamp(18.0, 24.0),
+        fontSize: AppFontSize.titleLarge,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppRadius.r12),
         border: Border.all(color: AppColors.outlineVariant),
         color: AppColors.surface,
       ),
@@ -65,7 +67,7 @@ class OtpVerificationForm extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
               color: AppColors.primary,
               fontWeight: FontWeight.bold,
-              fontSize: context.sp(3.5).clamp(12.0, 16.0),
+              fontSize: AppFontSize.titleSmall,
             ),
           ),
         ),

@@ -483,4 +483,14 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get no_internet_button => 'إعادة المحاولة';
+
+  @override
+  String register_success_msg(String name) {
+    return 'مرحباً $name! تم إنشاء حسابك بنجاح';
+  }
+
+  @override
+  String login_success_msg(String name) {
+    return 'مرحباً $name';
+  }
 }

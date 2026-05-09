@@ -87,7 +87,7 @@ class _LoginFormState extends State<LoginForm> {
               return AppButton.primary(
                 text: l10n.login_button,
                 isLoading: isLoading,
-                onPressed: isLoading ? () {} : _submit,
+                onPressed: isLoading ? null : _submit,
               );
             },
           ),

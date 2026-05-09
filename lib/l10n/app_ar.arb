@@ -195,5 +195,21 @@
   "empty_state_button": "البحث من جديد",
   "no_internet_title": "لا يوجد اتصال بالإنترنت",
   "no_internet_desc": "يبدو أنك غير متصل بالشبكة. يرجى التحقق من اتصالك بالإنترنت للمتابعة.",
-  "no_internet_button": "إعادة المحاولة"
+  "no_internet_button": "إعادة المحاولة",
+  "register_success_msg": "مرحباً {name}! تم إنشاء حسابك بنجاح",
+  "@register_success_msg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "login_success_msg": "مرحباً {name}",
+  "@login_success_msg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }
