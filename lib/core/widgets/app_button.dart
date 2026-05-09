@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import '../constants/radius.dart';
 import '../theme/app_colors.dart';
 import '../utils/responsive_utils/responsive_helper.dart';
 
 class AppButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final bool isPrimary;
   final bool isLoading;
   final IconData? icon;
@@ -45,7 +46,7 @@ class AppButton extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: AppColors.primaryGradient,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppRadius.r12),
         ),
         child: ElevatedButton(
           onPressed: isLoading ? null : onPressed,
@@ -61,7 +62,7 @@ class AppButton extends StatelessWidget {
           style: OutlinedButton.styleFrom(
             side: const BorderSide(color: AppColors.primary, width: 1),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppRadius.r12),
             ),
             foregroundColor: AppColors.primary,
           ),

@@ -2,6 +2,7 @@ import 'package:al_qaah/core/theme/app_colors.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
+import 'package:al_qaah/core/constants/radius.dart';
 import 'package:flutter/material.dart';
 
 class BrowseVenuesCard extends StatelessWidget {
@@ -14,7 +15,7 @@ class BrowseVenuesCard extends StatelessWidget {
       width: double.infinity,
       height: context.hp(28).clamp(200.0, 280.0),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(AppRadius.r24),
         image: const DecorationImage(
           image: NetworkImage(
             'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2098&auto=format&fit=crop',
@@ -24,7 +25,7 @@ class BrowseVenuesCard extends StatelessWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(AppRadius.r24),
           gradient: LinearGradient(
             colors: [
               Colors.black.withValues(alpha: 0.1),
@@ -62,7 +63,7 @@ class BrowseVenuesCard extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(AppRadius.r30),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,

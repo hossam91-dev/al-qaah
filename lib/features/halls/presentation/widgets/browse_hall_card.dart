@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/font_size.dart';
+import '../../../../core/constants/radius.dart';
+
 class BrowseHallCard extends StatelessWidget {
   const BrowseHallCard({
     super.key,
@@ -25,7 +28,7 @@ class BrowseHallCard extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(AppRadius.r16),
           boxShadow: [
             BoxShadow(
               color: const Color(0xFF3B1F5E).withValues(alpha: 0.06),
@@ -42,7 +45,7 @@ class BrowseHallCard extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(16),
+                    top: Radius.circular(AppRadius.r16),
                   ),
                   child: Image.network(
                     imageUrl,
@@ -93,7 +96,7 @@ class BrowseHallCard extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(AppRadius.r20),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withValues(alpha: 0.08),
@@ -113,7 +116,7 @@ class BrowseHallCard extends StatelessWidget {
                           rating,
                           style: const TextStyle(
                             fontFamily: 'Cairo',
-                            fontSize: 10,
+                            fontSize: AppFontSize.s10,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF1B1B20),
                           ),
@@ -137,7 +140,7 @@ class BrowseHallCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontFamily: 'Cairo',
-                        fontSize: 12,
+                        fontSize: AppFontSize.bodySmall,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF250548),
                         height: 1.4,
@@ -158,7 +161,7 @@ class BrowseHallCard extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                               fontFamily: 'Cairo',
-                              fontSize: 10,
+                              fontSize: AppFontSize.s10,
                               color: Color(0xFF4A454F),
                             ),
                           ),
@@ -178,7 +181,7 @@ class BrowseHallCard extends StatelessWidget {
                           '$capacity فرد',
                           style: const TextStyle(
                             fontFamily: 'Cairo',
-                            fontSize: 10,
+                            fontSize: AppFontSize.s10,
                             color: Color(0xFF4A454F),
                           ),
                         ),
@@ -189,7 +192,7 @@ class BrowseHallCard extends StatelessWidget {
                       '$price ج.م',
                       style: const TextStyle(
                         fontFamily: 'Cairo',
-                        fontSize: 12,
+                        fontSize: AppFontSize.bodySmall,
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF3B1F5E),
                       ),

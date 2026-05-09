@@ -4,8 +4,9 @@ import 'package:al_qaah/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'dart:async';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
+import 'package:al_qaah/core/router/app_routes.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -20,8 +21,34 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final StreamSubscription<AuthState> _authSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    _authSubscription = Supabase.instance.client.auth.onAuthStateChange.listen((data) {
+      if (data.event == AuthChangeEvent.signedOut) {
+        AppRouter.router.go(AppRoutes.login);
+      } else if (data.event == AuthChangeEvent.passwordRecovery) {
+        // OTP verified for password reset → navigate directly to reset page
+        AppRouter.router.go(AppRoutes.resetPassword);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _authSubscription.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

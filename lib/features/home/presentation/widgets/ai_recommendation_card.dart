@@ -2,6 +2,7 @@ import 'package:al_qaah/core/theme/app_colors.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
+import 'package:al_qaah/core/constants/radius.dart';
 import 'package:flutter/material.dart';
 
 class AiRecommendationCard extends StatelessWidget {
@@ -15,7 +16,7 @@ class AiRecommendationCard extends StatelessWidget {
       padding: EdgeInsets.all(context.wp(6).clamp(16.0, 32.0)),
       decoration: BoxDecoration(
         color: AppColors.primary.withValues(alpha: 0.05),
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(AppRadius.r24),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +25,7 @@ class AiRecommendationCard extends StatelessWidget {
             padding: EdgeInsets.all(context.wp(3).clamp(8.0, 16.0)),
             decoration: BoxDecoration(
               color: AppColors.primary,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppRadius.r12),
             ),
             child: Icon(
               Icons.auto_awesome_rounded,

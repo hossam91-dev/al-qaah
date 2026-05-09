@@ -2,7 +2,6 @@ import 'package:al_qaah/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../core/di/injection.dart';
 import '../../../../core/router/app_routes.dart';
 import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 import '../../../../core/widgets/app_snack_bar.dart';
@@ -17,15 +16,13 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<AuthCubit>(),
-      child: BlocListener<AuthCubit, AuthState>(
+    return BlocListener<AuthCubit, AuthState>(
         listener: (context, state) {
           state.whenOrNull(
             success: (user) {
               AppSnackBar.success(
                 context,
-                'مرحباً ${user.name ?? ''}! تم إنشاء حسابك بنجاح',
+                AppLocalizations.of(context)!.register_success_msg(user.name ?? ''),
               );
               context.go(AppRoutes.home);
             },
@@ -61,7 +58,6 @@ class RegisterPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

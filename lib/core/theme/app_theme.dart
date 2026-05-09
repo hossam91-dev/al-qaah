@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants/radius.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
 
@@ -37,7 +38,7 @@ class AppTheme {
           foregroundColor: AppColors.onPrimary,
           minimumSize: const Size(double.infinity, 48),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppRadius.r12),
           ),
           elevation: 0,
         ),
@@ -46,7 +47,9 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: AppColors.surfaceContainerLowest,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppRadius.r16),
+        ),
         clipBehavior: Clip.antiAlias,
       ),
 

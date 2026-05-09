@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 import '../../../../core/error/failures.dart';
-import '../entities/hall_entity.dart';
+import '../../../../features/halls/domain/entities/hall_entity.dart';
 
 abstract class HomeRepository {
   Future<Either<Failure, List<HallEntity>>> getHalls({

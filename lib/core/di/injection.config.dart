@@ -22,6 +22,13 @@ import '../../features/auth/data/repositories/auth_repository_impl.dart'
     as _i153;
 import '../../features/auth/domain/repositories/auth_repository.dart' as _i787;
 import '../../features/auth/presentation/bloc/auth_cubit.dart' as _i52;
+import '../../features/halls/data/datasources/halls_remote_data_source.dart'
+    as _i239;
+import '../../features/halls/data/repositories/halls_repository_impl.dart'
+    as _i318;
+import '../../features/halls/domain/repositories/halls_repository.dart'
+    as _i906;
+import '../../features/halls/presentation/bloc/halls_cubit.dart' as _i981;
 import '../../features/home/data/datasources/home_remote_data_source.dart'
     as _i362;
 import '../../features/home/data/repositories/home_repository_impl.dart'
@@ -48,6 +55,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i787.AuthRepository>(
       () => _i153.AuthRepositoryImpl(gh<_i107.AuthRemoteDataSource>()),
     );
+    gh.lazySingleton<_i239.HallsRemoteDataSource>(
+      () => _i239.HallsRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
+    );
     gh.lazySingleton<_i362.HomeRemoteDataSource>(
       () => _i362.HomeRemoteDataSourceImpl(gh<_i454.SupabaseClient>()),
     );
@@ -57,8 +67,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i0.HomeRepository>(
       () => _i76.HomeRepositoryImpl(gh<_i362.HomeRemoteDataSource>()),
     );
+    gh.lazySingleton<_i906.HallsRepository>(
+      () => _i318.HallsRepositoryImpl(gh<_i239.HallsRemoteDataSource>()),
+    );
     gh.factory<_i816.HomeCubit>(
       () => _i816.HomeCubit(gh<_i0.HomeRepository>()),
+    );
+    gh.factory<_i981.HallsCubit>(
+      () => _i981.HallsCubit(gh<_i906.HallsRepository>()),
     );
     return this;
   }

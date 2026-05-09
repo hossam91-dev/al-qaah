@@ -2,7 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../core/error/error_handler.dart';
 import '../../../../core/error/failures.dart';
-import '../../domain/entities/hall_entity.dart';
+import '../../../../features/halls/domain/entities/hall_entity.dart';
 import '../../domain/repositories/home_repository.dart';
 import '../datasources/home_remote_data_source.dart';
 

@@ -2,6 +2,7 @@ import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import '../../../../core/constants/radius.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
 
@@ -14,7 +15,7 @@ class BookingHallDetailsCard extends StatelessWidget {
       padding: EdgeInsets.all(context.wp(4)),
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(AppRadius.r24),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.02),
@@ -27,7 +28,7 @@ class BookingHallDetailsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(AppRadius.r16),
             child: CachedNetworkImage(
               imageUrl:
                   'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2098&auto=format&fit=crop',
@@ -90,7 +91,7 @@ class BookingHallDetailsCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppRadius.r12),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

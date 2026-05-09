@@ -1,3 +1,4 @@
+import '../../../../core/constants/radius.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class HallGridCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(context.sp(4).clamp(12.0, 24.0)),
+        borderRadius: BorderRadius.circular(AppRadius.r16),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),

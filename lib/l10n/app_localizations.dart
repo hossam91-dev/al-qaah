@@ -981,6 +981,18 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'إعادة المحاولة'**
   String get no_internet_button;
+
+  /// No description provided for @register_success_msg.
+  ///
+  /// In ar, this message translates to:
+  /// **'مرحباً {name}! تم إنشاء حسابك بنجاح'**
+  String register_success_msg(String name);
+
+  /// No description provided for @login_success_msg.
+  ///
+  /// In ar, this message translates to:
+  /// **'مرحباً {name}'**
+  String login_success_msg(String name);
 }
 
 class _AppLocalizationsDelegate

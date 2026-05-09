@@ -130,7 +130,7 @@ class _RegisterFormState extends State<RegisterForm> {
               return AppButton.primary(
                 text: l10n.register_button,
                 isLoading: isLoading,
-                onPressed: isLoading ? () {} : _submit,
+                onPressed: isLoading ? null : _submit,
               );
             },
           ),

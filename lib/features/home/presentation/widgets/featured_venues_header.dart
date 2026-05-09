@@ -2,6 +2,7 @@ import 'package:al_qaah/core/theme/app_colors.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:al_qaah/l10n/app_localizations.dart';
+import 'package:al_qaah/core/constants/radius.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedVenuesHeader extends StatelessWidget {
@@ -44,7 +45,7 @@ class FeaturedVenuesHeader extends StatelessWidget {
               width: context.wp(10).clamp(30.0, 50.0),
               decoration: BoxDecoration(
                 color: AppColors.primary,
-                borderRadius: BorderRadius.circular(2),
+                borderRadius: BorderRadius.circular(AppRadius.r2),
               ),
             ),
           ],

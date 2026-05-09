@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../models/hall_model.dart';
+import '../../../../features/halls/data/models/hall_model.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<HallModel>> getHalls({String? region, String? category});

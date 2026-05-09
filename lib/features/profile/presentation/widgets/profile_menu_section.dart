@@ -1,6 +1,7 @@
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/constants/radius.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class ProfileMenuSection extends StatelessWidget {
@@ -33,7 +34,7 @@ class ProfileMenuSection extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             color: AppColors.surfaceContainerLowest,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(AppRadius.r16),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(alpha: 0.02),

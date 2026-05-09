@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import '../../domain/entities/hall_entity.dart';
+import '../../../../features/halls/domain/entities/hall_entity.dart';
 import '../../domain/repositories/home_repository.dart';
 
 part 'home_state.dart';
@@ -13,25 +13,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   HomeCubit(this._homeRepository) : super(const HomeState.initial());
 
-  // Future<void> getHomeData() async {
-  //   emit(const HomeState.loading());
-
-  //   final featuredResult = await _homeRepository.getFeaturedHalls();
-  //   final allResult = await _homeRepository.getHalls();
-
-  //   featuredResult.fold(
-  //     (failure) => emit(HomeState.error(failure.message)),
-  //     (featuredHalls) {
-  //       allResult.fold(
-  //         (failure) => emit(HomeState.error(failure.message)),
-  //         (allHalls) => emit(HomeState.loaded(
-  //           featuredHalls: featuredHalls,
-  //           allHalls: allHalls,
-  //         )),
-  //       );
-  //     },
-  //   );
-  // }
 
   Future<void> getHighestRatedHall() async {
     emit(const HomeState.loading());

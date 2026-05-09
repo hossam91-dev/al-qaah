@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/font_size.dart';
+import '../../../../core/constants/radius.dart';
+
 class BrowseSearchBar extends StatelessWidget {
   const BrowseSearchBar({super.key});
 
@@ -9,7 +12,7 @@ class BrowseSearchBar extends StatelessWidget {
       height: 52,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.r16),
         boxShadow: [
           BoxShadow(
             color: const Color(0xFF3B1F5E).withValues(alpha: 0.06),
@@ -27,8 +30,7 @@ class BrowseSearchBar extends StatelessWidget {
             child: Text(
               'ابحث عن قاعة...',
               style: TextStyle(
-                fontFamily: 'Cairo',
-                fontSize: 14,
+                fontSize: AppFontSize.bodyMedium,
                 color: Color(0xFF9B8EC4),
               ),
             ),
@@ -38,7 +40,7 @@ class BrowseSearchBar extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: const Color(0xFF3B1F5E),
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(AppRadius.r10),
             ),
             child: const Icon(
               Icons.tune_rounded,

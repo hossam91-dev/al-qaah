@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/font_size.dart';
+import '../../../../core/constants/radius.dart';
+
 class BookingHallSummaryCard extends StatelessWidget {
   const BookingHallSummaryCard({super.key});
 
@@ -8,7 +11,7 @@ class BookingHallSummaryCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppRadius.r16),
         boxShadow: [
           BoxShadow(
             color: const Color(0xFF3B1F5E).withValues(alpha: 0.06),
@@ -21,7 +24,7 @@ class BookingHallSummaryCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: const BorderRadius.horizontal(
-              right: Radius.circular(16),
+              right: Radius.circular(AppRadius.r16),
             ),
             child: Image.network(
               'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=300',
@@ -49,7 +52,7 @@ class BookingHallSummaryCard extends StatelessWidget {
                     'قاعة ليلتي الماسية',
                     style: TextStyle(
                       fontFamily: 'Cairo',
-                      fontSize: 15,
+                      fontSize: AppFontSize.s15,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF250548),
                     ),
@@ -67,7 +70,7 @@ class BookingHallSummaryCard extends StatelessWidget {
                         'التجمع الخامس، القاهرة',
                         style: TextStyle(
                           fontFamily: 'Cairo',
-                          fontSize: 11,
+                          fontSize: AppFontSize.labelSmall,
                           color: Color(0xFF4A454F),
                         ),
                       ),
@@ -86,7 +89,7 @@ class BookingHallSummaryCard extends StatelessWidget {
                         '4.9',
                         style: TextStyle(
                           fontFamily: 'Cairo',
-                          fontSize: 12,
+                          fontSize: AppFontSize.labelMedium,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF1B1B20),
                         ),
@@ -96,7 +99,7 @@ class BookingHallSummaryCard extends StatelessWidget {
                         '80,000 ج.م',
                         style: TextStyle(
                           fontFamily: 'Cairo',
-                          fontSize: 13,
+                          fontSize: AppFontSize.s13,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF3B1F5E),
                         ),

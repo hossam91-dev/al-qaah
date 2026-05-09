@@ -1,5 +1,7 @@
+import 'package:al_qaah/core/constants/padding.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
+import 'package:al_qaah/core/widgets/base_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -13,7 +15,7 @@ class BookingStatusTracker extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Container(
-      padding: EdgeInsets.all(context.wp(6)),
+      padding: EdgeInsets.symmetric(horizontal: AppPadding.baseHori,vertical: AppPadding.baseVert),
       decoration: BoxDecoration(
         color: AppColors.surfaceContainerLowest,
         borderRadius: BorderRadius.circular(24),
@@ -27,6 +29,8 @@ class BookingStatusTracker extends StatelessWidget {
       ),
       child: Column(
         children: [
+          BaseAppBar(),
+          SizedBox(height: context.hp(2),),
           Row(
             children: [
               Expanded(

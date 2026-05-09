@@ -1,12 +1,16 @@
 import 'package:al_qaah/core/utils/responsive_utils/responsive_text.dart';
 import 'package:al_qaah/core/utils/responsive_utils/responsive_helper.dart';
+import 'package:al_qaah/features/auth/presentation/bloc/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/constants/padding.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../widgets/profile_header.dart';
 import '../widgets/profile_stats_card.dart';
 import '../widgets/profile_menu_item.dart';
 import '../widgets/profile_menu_section.dart';
+
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -19,10 +23,21 @@ class ProfilePage extends StatelessWidget {
       child: Column(
         children: [
           // Header
-          const ProfileHeader(
-            name: 'نور محمد',
-            phone: '01xxxxxxxxx',
-            imageUrl: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+          BlocBuilder<AuthCubit, AuthState>(
+            builder: (context, state) {
+              return state.maybeWhen(
+                success: (user) => ProfileHeader(
+                  name: user.name ?? '',
+                  phone: user.email,
+                  imageUrl: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+                ),
+                orElse: () => const ProfileHeader(
+                  name: 'ضيف',
+                  phone: '',
+                  imageUrl: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+                ),
+              );
+            },
           ),
 
           // Stats Section
@@ -59,11 +74,9 @@ class ProfilePage extends StatelessWidget {
 
           // Menu Sections
           Padding(
-            padding: EdgeInsets.fromLTRB(
-              context.wp(5),
-              0,
-              context.wp(5),
-              context.hp(12),
+            padding: EdgeInsets.symmetric(
+              horizontal: context.wp(AppPadding.baseHori),
+              vertical: context.hp(AppPadding.baseVert),
             ),
             child: Column(
               children: [
@@ -138,7 +151,9 @@ class ProfilePage extends StatelessWidget {
 
                 // Logout Button
                 OutlinedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<AuthCubit>().logout();
+                  },
                   icon: Icon(
                     Icons.logout_rounded,
                     size: context.sp(5).clamp(18.0, 24.0),

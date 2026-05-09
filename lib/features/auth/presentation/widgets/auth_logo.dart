@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/font_size.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/responsive_utils/responsive_helper.dart';
 
@@ -16,7 +17,7 @@ class AuthLogo extends StatelessWidget {
             style: Theme.of(context).textTheme.displayMedium?.copyWith(
               color: AppColors.primary,
               letterSpacing: 4.0,
-              fontSize: context.sp(8).clamp(32.0, 48.0),
+              fontSize: AppFontSize.displayMedium,
             ),
           ),
           Container(

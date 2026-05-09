@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/font_size.dart';
+import '../../../../core/constants/radius.dart';
+
 class BrowseFilterChip extends StatelessWidget {
   const BrowseFilterChip({
     super.key,
@@ -19,7 +22,7 @@ class BrowseFilterChip extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
         decoration: BoxDecoration(
           color: isSelected ? const Color(0xFF3B1F5E) : Colors.white,
-          borderRadius: BorderRadius.circular(22),
+          borderRadius: BorderRadius.circular(AppRadius.r22),
           boxShadow: isSelected
               ? [
                   BoxShadow(
@@ -40,7 +43,7 @@ class BrowseFilterChip extends StatelessWidget {
           label,
           style: TextStyle(
             fontFamily: 'Cairo',
-            fontSize: 13,
+            fontSize: AppFontSize.s13,
             fontWeight: FontWeight.w600,
             color: isSelected ? Colors.white : const Color(0xFF4A454F),
           ),
